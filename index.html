@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Busy Bee — HCI Digital Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#15130F;
+    --surface:#1E1B15;
+    --surface-2:#262219;
+    --border:#33301F;
+    --gold:#F2A93B;
+    --gold-dim:#C98A2E;
+    --teal:#4FB3A9;
+    --pending:#57503E;
+    --text:#F5F1E8;
+    --text-muted:#A79E8C;
+    --text-faint:#726B58;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    margin:0 0 16px 0;
+    line-height:1.15;
+    font-weight:600;
+  }
+  h1{font-size:2.5rem;}
+  h2{font-size:1.6rem;}
+  h3{font-size:1.15rem;color:var(--text);}
+  p{color:var(--text-muted);margin:0 0 16px 0;max-width:62ch;}
+  a{color:var(--gold);}
+  .app{display:flex;min-height:100vh;}
+
+  /* ---------- Sidebar ---------- */
+  .sidebar{
+    width:280px;
+    flex-shrink:0;
+    background:var(--surface);
+    border-right:1px solid var(--border);
+    padding:28px 20px;
+    position:sticky;
+    top:0;
+    height:100vh;
+    overflow-y:auto;
+  }
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:28px;}
+  .brand-mark{width:30px;height:30px;flex-shrink:0;}
+  .brand-text .name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.2px;}
+  .brand-text .subtitle{font-size:.75rem;color:var(--text-faint);}
+
+  .legend{display:flex;gap:14px;font-size:.72rem;color:var(--text-faint);margin-bottom:20px;flex-wrap:wrap;}
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+
+  .nav{display:flex;flex-direction:column;gap:2px;}
+  .nav-item{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    background:none;border:none;text-align:left;
+    color:var(--text-muted);
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size:.92rem;
+    padding:10px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:background .15s ease,color .15s ease;
+  }
+  .nav-item:hover{background:var(--surface-2);color:var(--text);}
+  .nav-item.active{background:var(--surface-2);color:var(--text);}
+  .nav-item.active::before{content:"";width:3px;align-self:stretch;background:var(--gold);border-radius:2px;margin-right:-4px;}
+
+  .status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .status-dot.pending{background:var(--pending);}
+  .status-dot.progress{background:var(--gold);animation:pulse 2.4s ease-in-out infinite;}
+  .status-dot.complete{background:var(--teal);}
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(242,169,59,.5);}
+    50%{box-shadow:0 0 0 5px rgba(242,169,59,0);}
+  }
+
+  .sidebar-footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--border);font-size:.72rem;color:var(--text-faint);}
+
+  /* ---------- Content ---------- */
+  .content{flex:1;padding:60px 56px;max-width:900px;}
+  .phase-section{display:none;}
+  .phase-section.active{display:block;animation:fadein .25s ease;}
+  @keyframes fadein{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+
+  .eyebrow{font-size:.85rem;color:var(--gold);margin-bottom:8px;}
+  .status-pill{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:.78rem;color:var(--text-muted);
+    border:1px solid var(--border);border-radius:999px;
+    padding:4px 12px;margin-bottom:20px;
+  }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:22px 24px;
+    margin-bottom:16px;
+  }
+  .card h3{margin-bottom:8px;}
+  .card p{margin-bottom:0;}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+
+  .placeholder{
+    border:1px dashed var(--border);
+    border-radius:10px;
+    padding:26px;
+    color:var(--text-faint);
+    font-size:.92rem;
+  }
+  .placeholder strong{color:var(--text-muted);display:block;margin-bottom:6px;font-family:'Space Grotesk',sans-serif;font-weight:600;}
+
+  .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+  .team-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;}
+  .team-card .avatar{width:44px;height:44px;border-radius:50%;background:var(--surface-2);border:1px solid var(--border);margin-bottom:12px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;color:var(--gold);font-weight:600;}
+  .team-card .role{font-size:.82rem;color:var(--text-faint);}
+
+  footer.page-footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-faint);}
+
+  /* ---------- Mobile ---------- */
+  @media(max-width:820px){
+    .app{flex-direction:column;}
+    .sidebar{
+      width:100%;height:auto;position:sticky;top:0;z-index:10;
+      padding:16px;
+      display:flex;flex-direction:column;
+    }
+    .nav{flex-direction:row;overflow-x:auto;padding-bottom:4px;}
+    .nav-item{white-space:nowrap;flex-shrink:0;}
+    .nav-item.active::before{display:none;}
+    .legend, .sidebar-footer{display:none;}
+    .content{padding:32px 22px;}
+    h1{font-size:1.9rem;}
+    .grid-2{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none">
+        <polygon points="20,2 35,11 35,29 20,38 5,29 5,11" fill="#262219" stroke="#F2A93B" stroke-width="1.5"/>
+        <circle cx="20" cy="20" r="6" fill="#F2A93B"/>
+      </svg>
+      <div class="brand-text">
+        <div class="name">Busy Bee</div>
+        <div class="subtitle">HCI Digital Portfolio</div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span><span class="status-dot pending"></span>Not started</span>
+      <span><span class="status-dot progress"></span>In progress</span>
+      <span><span class="status-dot complete"></span>Complete</span>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item active" data-target="overview">Overview</button>
+      <button class="nav-item" data-target="phase-1">Phase 1: Project Description<span class="status-dot progress"></span></button>
+      <button class="nav-item" data-target="phase-2">Phase 2: User Research<span class="status-dot pending"></span></button>
+      <button class="nav-item" data-target="phase-3">Phase 3: Task Analysis &amp; Requirements<span class="status-dot pending"></span></button>
+      <button class="nav-item" data-target="phase-4">Phase 4: Low-Fidelity Prototype<span class="status-dot pending"></span></button>
+      <button class="nav-item" data-target="phase-5">Phase 5: High-Fidelity Prototype<span class="status-dot pending"></span></button>
+      <button class="nav-item" data-target="phase-6">Phase 6: Usability Evaluation<span class="status-dot pending"></span></button>
+      <button class="nav-item" data-target="phase-7">Phase 7: Final Reflection<span class="status-dot pending"></span></button>
+      <button class="nav-item" data-target="team">Team</button>
+    </nav>
+
+    <div class="sidebar-footer">
+      University of Michigan–Flint<br>
+      Human-Computer Interaction<br>
+      Last updated: <span id="update-date"></span>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <!-- OVERVIEW -->
+    <section id="overview" class="phase-section active">
+      <div class="eyebrow">Group project</div>
+      <h1>Busy Bee</h1>
+      <p style="font-size:1.05rem;max-width:56ch;">A crowdsourced, real-time app that shows how busy a place is right now — before you walk in.</p>
+
+      <div class="card">
+        <h3>Why this project</h3>
+        <p>Deciding whether a coffee shop, gym, or restaurant is worth the trip usually means guessing. Busy Bee lets people report and see live crowd levels at nearby venues, so the guess becomes a quick check instead. Our team is using it as the foundation for this semester's HCI design process, working through research, prototyping, and evaluation with real users in mind.</p>
+      </div>
+
+      <div class="card">
+        <h3>How this portfolio works</h3>
+        <p>Each phase in the sidebar lights up as we complete it — dim for not started, gold for in progress, teal for done. This page is being published now and will be filled in and refined through the end of the semester, so check back as the phases progress.</p>
+      </div>
+    </section>
+
+    <!-- PHASE 1 -->
+    <section id="phase-1" class="phase-section">
+      <div class="eyebrow">Phase 1</div>
+      <h1>Project Description</h1>
+      <div class="status-pill"><span class="status-dot progress"></span>In progress</div>
+      <p>This phase is just getting underway in class. The structure below is ready — content goes in as we draft it.</p>
+
+      <div class="placeholder">
+        <strong>Problem statement</strong>
+        What problem does Busy Bee solve, and for whom? (1–2 paragraphs)
+      </div>
+      <br>
+      <div class="placeholder">
+        <strong>Target users</strong>
+        Who is this for — students, commuters, parents, etc.? What do they currently do instead?
+      </div>
+      <br>
+      <div class="placeholder">
+        <strong>Goals &amp; objectives</strong>
+        What does success look like for this project by the end of the semester?
+      </div>
+      <br>
+      <div class="placeholder">
+        <strong>Approach</strong>
+        Brief overview of the design process we'll follow (research → ideation → prototyping → evaluation).
+      </div>
+    </section>
+
+    <!-- PHASE 2 -->
+    <section id="phase-2" class="phase-section">
+      <div class="eyebrow">Phase 2</div>
+      <h1>User Research</h1>
+      <div class="status-pill"><span class="status-dot pending"></span>Not started</div>
+      <p>Interviews, surveys, and observations to understand who would actually use Busy Bee, and what they need from it. Personas and key findings will go here.</p>
+      <div class="placeholder">Coming once Phase 1 is submitted.</div>
+    </section>
+
+    <!-- PHASE 3 -->
+    <section id="phase-3" class="phase-section">
+      <div class="eyebrow">Phase 3</div>
+      <h1>Task Analysis &amp; Requirements</h1>
+      <div class="status-pill"><span class="status-dot pending"></span>Not started</div>
+      <p>Representative user tasks and a prioritized list of system requirements derived from the research phase.</p>
+      <div class="placeholder">Coming soon.</div>
+    </section>
+
+    <!-- PHASE 4 -->
+    <section id="phase-4" class="phase-section">
+      <div class="eyebrow">Phase 4</div>
+      <h1>Low-Fidelity Prototype</h1>
+      <div class="status-pill"><span class="status-dot pending"></span>Not started</div>
+      <p>Early sketches and a low-fidelity prototype, plus a task-centered walkthrough and initial informal feedback.</p>
+      <div class="placeholder">Coming soon.</div>
+    </section>
+
+    <!-- PHASE 5 -->
+    <section id="phase-5" class="phase-section">
+      <div class="eyebrow">Phase 5</div>
+      <h1>High-Fidelity Prototype</h1>
+      <div class="status-pill"><span class="status-dot pending"></span>Not started</div>
+      <p>A refined, high-fidelity prototype built from what we learned testing the low-fidelity version.</p>
+      <div class="placeholder">Coming soon.</div>
+    </section>
+
+    <!-- PHASE 6 -->
+    <section id="phase-6" class="phase-section">
+      <div class="eyebrow">Phase 6</div>
+      <h1>Usability Evaluation</h1>
+      <div class="status-pill"><span class="status-dot pending"></span>Not started</div>
+      <p>Structured usability testing on the high-fidelity prototype, with findings and any resulting design changes.</p>
+      <div class="placeholder">Coming soon.</div>
+    </section>
+
+    <!-- PHASE 7 -->
+    <section id="phase-7" class="phase-section">
+      <div class="eyebrow">Phase 7</div>
+      <h1>Final Reflection</h1>
+      <div class="status-pill"><span class="status-dot pending"></span>Not started</div>
+      <p>What we'd do differently, what we learned about the design process, and where Busy Bee could go from here.</p>
+      <div class="placeholder">Coming soon.</div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="phase-section">
+      <div class="eyebrow">The team</div>
+      <h1>Who built this</h1>
+      <p>Three students working through the HCI design process together this semester.</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="avatar">O</div>
+          <h3>Omar Naguib</h3>
+          <div class="role">Cybersecurity · Project lead &amp; site maintainer</div>
+        </div>
+        <div class="team-card">
+          <div class="avatar">?</div>
+          <h3>[Teammate name]</h3>
+          <div class="role">[Major / role]</div>
+        </div>
+        <div class="team-card">
+          <div class="avatar">?</div>
+          <h3>[Teammate name]</h3>
+          <div class="role">[Major / role]</div>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        Busy Bee — HCI Digital Portfolio · University of Michigan–Flint
+      </footer>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  const navItems = document.querySelectorAll('.nav-item');
+  const sections = document.querySelectorAll('.phase-section');
+
+  function showTarget(target){
+    navItems.forEach(n => n.classList.toggle('active', n.dataset.target === target));
+    sections.forEach(s => s.classList.toggle('active', s.id === target));
+  }
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const target = item.dataset.target;
+      history.replaceState(null, '', '#' + target);
+      showTarget(target);
+    });
+  });
+
+  const initial = window.location.hash.replace('#','');
+  if (initial && document.getElementById(initial)) {
+    showTarget(initial);
+  }
+
+  document.getElementById('update-date').textContent = new Date().toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+</script>
+
+</body>
+</html>
