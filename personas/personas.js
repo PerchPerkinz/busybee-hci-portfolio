@@ -1,4 +1,4 @@
-/* BusyBee personas — Xtensio template structure, content derived from the
+/* BusyBee personas: Xtensio template structure, content derived from the
    Phase 2 affinity wall. Bars are 0-100.
    evidence: "d" = stated in the interviews | "i" = inferred from them */
 
@@ -13,8 +13,8 @@ const P = [
     facts: [
       ["Age", "62"],
       ["Status", "Retired, formerly operations"],
-      ["Travels", "6–8 trips a year"],
-      ["Goes out", "Most days — groceries, gym, dinner"],
+      ["Travels", "6 to 8 trips a year"],
+      ["Goes out", "Most days: groceries, gym, dinner"],
       ["Location", "Metro Detroit, Michigan"],
       ["Character", "The Planner"]
     ],
@@ -36,7 +36,7 @@ const P = [
       "Once she is committed to a line there is no leaving it",
       "The waiting is arithmetic and dread, not boredom"
     ],
-    bio: "Maya is retired, which means her week no longer has a fixed shape, but the trips that matter are planned to the minute. She works backwards from a departure time the night before and treats any unknown as something to pad against. She stopped trusting posted wait times after one told her ten minutes and cost her forty. Now she asks people instead — her wife texting from a different line, a shuttle driver who has made the run forty times that morning. Locally she is relaxed: a twenty minute wait for dinner and she will simply go elsewhere. The difference is never the venue, it is whether being wrong is expensive.",
+    bio: "Maya is retired, which means her week no longer has a fixed shape, but the trips that matter are planned to the minute. She works backwards from a departure time the night before and treats any unknown as something to pad against. She stopped trusting posted wait times after one told her ten minutes and cost her forty. Now she asks people instead: her wife texting from a different line, a shuttle driver who has made the run forty times that morning. Locally she is relaxed: a twenty minute wait for dinner and she will simply go elsewhere. The difference is never the venue, it is whether being wrong is expensive.",
     motivation: [
       ["Time certainty", 96],
       ["Crowd avoidance", 34],
@@ -88,7 +88,7 @@ const P = [
       "Blames herself for wasted trips she had no way to predict",
       "Turning around in a full room is a small public humiliation"
     ],
-    bio: "Jordan is on campus five days a week and never studies at home, so most days end with a walk to a cafe or the library. There is no planning involved — class ends and she goes, because the gap between classes is however long it is and thinking about it only eats into it. Going out with friends is the opposite, though she would not call it planning either: six people negotiating in a group chat while someone checks Maps and someone else reports that it was awful last Friday. She wants a cafe empty and a bar full, and the same app has to understand both. Any one wasted trip is trivial. It is the accumulation she notices.",
+    bio: "Jordan is on campus five days a week and never studies at home, so most days end with a walk to a cafe or the library. There is no planning involved. Class ends and she goes, because the gap between classes is however long it is and thinking about it only eats into it. Going out with friends is the opposite, though she would not call it planning either: six people negotiating in a group chat while someone checks Maps and someone else reports that it was awful last Friday. She wants a cafe empty and a bar full, and the same app has to understand both. Any one wasted trip is trivial. It is the accumulation she notices.",
     motivation: [
       ["Time certainty", 62],
       ["Crowd avoidance", 54],
@@ -136,11 +136,11 @@ const P = [
       "Use a tool that is already populated enough to be worth opening"
     ],
     frustrations: [
-      "Posting for strangers has no visible payoff — who is even reading it?",
+      "Posting for strangers has no visible payoff, so who is even reading it?",
       "Will not trust a crowd whose moderation story is unexplained",
       "With two young children, any wait at all ends the outing"
     ],
-    bio: "Sam does not like being around a lot of people, and plans around that rather than tolerating it. He checks almost nothing before leaving — he simply arrives and finds out — but he already reports traffic on Waze out of habit and trusts GasBuddy for the same reason. He tells people before they head over, every time, and gives a prediction when asked, but he has never written a review and does not think of any of that as reporting. He assumes good faith from other users, seeing no reason anyone would call a busy place quiet, though he would want to know what happens when someone does.",
+    bio: "Sam does not like being around a lot of people, and plans around that rather than tolerating it. He checks almost nothing before leaving, he simply arrives and finds out, but he already reports traffic on Waze out of habit and trusts GasBuddy for the same reason. He tells people before they head over, every time, and gives a prediction when asked, but he has never written a review and does not think of any of that as reporting. He assumes good faith from other users, seeing no reason anyone would call a busy place quiet, though he would want to know what happens when someone does.",
     motivation: [
       ["Time certainty", 48],
       ["Crowd avoidance", 92],

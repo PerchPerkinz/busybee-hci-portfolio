@@ -71,7 +71,7 @@
       " <small>" + counts[k] + "</small>");
     c.type = "button";
     c.dataset.p = k;
-    c.title = p.role + " — interviewed by " + p.by;
+    c.title = p.role + " · interviewed by " + p.by;
     c.setAttribute("aria-pressed", "false");
     pbar.appendChild(c);
   });
@@ -131,7 +131,7 @@
         (note.src === "v" ? "Verbatim response" : "Interviewer&rsquo;s recorded response") +
       '</p><p class="v' + (note.src === "r" ? " rec" : "") + '">' +
         (note.src === "v" ? "&ldquo;" + note.v + "&rdquo;" : note.v) + "</p></div>" +
-      '<div class="dpath">Placed under<br><b>' + theme.id + " &mdash; " + theme.label + "</b><br>&#8627; &ldquo;" + group.label + "&rdquo;</div>";
+      '<div class="dpath">Placed under<br><b>' + theme.id + ": " + theme.label + "</b><br>&#8627; &ldquo;" + group.label + "&rdquo;</div>";
     drawer.classList.add("open");
   }
   $("#dclose").addEventListener("click", closeDrawer);
@@ -263,19 +263,19 @@
       }).join("") + "</div>";
 
   THEMES.forEach((t) => {
-    html += "<section><h2>" + t.id + " &mdash; " + t.label + "</h2>" +
+    html += "<section><h2>" + t.id + ": " + t.label + "</h2>" +
       '<p class="tm">' + t.groups.length + " groups &middot; " +
       t.groups.reduce((a, g) => a + g.notes.length, 0) + " notes</p>";
     t.groups.forEach((g) => {
       html += "<h3>&ldquo;" + g.label + "&rdquo;</h3><ul>" +
-        g.notes.map((x) => "<li>" + x.t + " <em>&mdash; " + PARTICIPANTS[x.p].id + ", Q" + x.q +
+        g.notes.map((x) => "<li>" + x.t + " <em>" + PARTICIPANTS[x.p].id + ", Q" + x.q +
           (x.src === "r" ? ", recorded" : "") + "</em></li>").join("") + "</ul>";
     });
     html += '<div class="impl"><h3>Design implication &rarr; BusyBee</h3><p>' + t.impl + "</p></div></section>";
   });
   html += '<p class="sub" style="margin:34px 0 0;border-top:1px solid var(--paper-edge);padding-top:18px">' +
     "Method: Beyer &amp; Holtzblatt contextual design. Interviews conducted " +
-    "September 2026 by Omar Naguib (P1, P2), Evan Wilkin (P3&ndash;P5) and Nolan Jarvinen (P6, P7). " +
+    "September 2026 by Omar Naguib (P1 and P2), Evan Wilkin (P3 through P5) and Nolan Jarvinen (P6 and P7). " +
     "Notes grouped bottom-up; group labels phrased in participants&rsquo; own voice.</p>";
   $("#readinner").innerHTML = html;
 
@@ -284,7 +284,7 @@
   $("#persinner").innerHTML =
     '<div class="phead"><h1>Three personas, derived from the wall</h1>' +
     "<p>Each persona below is built from the affinity themes, not from assumption. The rail on the left names the " +
-    "participants it was grounded in and the themes it draws on &mdash; click any theme chip to jump to that cluster on the wall. " +
+    "participants it was grounded in and the themes it draws on. Click any theme chip to jump to that cluster on the wall. " +
     "Names are carried over from the team&rsquo;s earlier research pass so the master deliverable stays consistent.</p></div>" +
     PERSONAS.map((p) =>
       '<article class="pcard">' +
@@ -308,7 +308,7 @@
             '<div style="grid-column:1/-1"><h3>What they do today</h3><ul>' + li(p.behaviour) + "</ul></div>" +
           "</div>" +
           '<blockquote class="pquote"><p>&ldquo;' + p.quote + "&rdquo;</p>" +
-            "<cite>&mdash; " + PARTICIPANTS[p.quoteBy].id + ", " + PARTICIPANTS[p.quoteBy].role + "</cite></blockquote>" +
+            "<cite>" + PARTICIPANTS[p.quoteBy].id + ", " + PARTICIPANTS[p.quoteBy].role + "</cite></blockquote>" +
           '<div class="pmeta">' +
             "<div><h3>Walk-away threshold</h3><p>" + p.threshold + "</p></div>" +
             "<div><h3>Conditions for trusting BusyBee</h3><p>" + p.trust + "</p></div>" +

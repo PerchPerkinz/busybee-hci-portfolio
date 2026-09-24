@@ -1,4 +1,4 @@
-/* BusyBee — Phase 2 Contextual Inquiry
+/* BusyBee: Phase 2 Contextual Inquiry
    Source: BusyBee_Contextual_Inquiry_Master.pdf (7 interviews, 10 questions each)
    src: "v" = verbatim first-person transcript | "r" = interviewer's recorded summary */
 
@@ -9,7 +9,7 @@ const PARTICIPANTS = {
   p4: { id: "P4", color: "#2E9E9E", role: "Out three to four times a day, errand-driven", by: "Evan Wilkin" },
   p5: { id: "P5", color: "#4A82D6", role: "Out once or twice a week, patient planner", by: "Evan Wilkin" },
   p6: { id: "P6", color: "#8A6BD1", role: "Out most days, strongly crowd-averse", by: "Nolan Jarvinen" },
-  p7: { id: "P7", color: "#C4568F", role: "Out daily — gym, stores, golf, long drives", by: "Nolan Jarvinen" }
+  p7: { id: "P7", color: "#C4568F", role: "Out daily: gym, stores, golf, long drives", by: "Nolan Jarvinen" }
 };
 
 const QUESTIONS = {
@@ -42,7 +42,7 @@ const THEMES = [
           n("p7", 3, "Restaurant yes, grocery store no.", "If it's a restaurant, I like knowing whether or not it's busy, but for something like a grocery store, I don't care as much."),
           n("p7", 3, "Downtown matters because of traffic and parking, not the venue itself.", "If I'm going to downtown Detroit, it's more important because I want to know what traffic and parking are going to be like."),
           n("p7", 3, "It would be nice to know if a golf course is really busy.", "It would also be nice to know if something like a golf course is really busy."),
-          n("p4", 3, "Won't go to the gym when it's packed — it's a small gym.", "Depends on the establishment. Doesn't want to go to the gym when it is packed since it's a smaller sized gym.", "r"),
+          n("p4", 3, "Won't go to the gym when it's packed, because it's a small gym.", "Depends on the establishment. Doesn't want to go to the gym when it is packed since it's a smaller sized gym.", "r"),
           n("p4", 3, "Grocery stores are a mess when busy; wants in and out.", "Grocery stores are also a mess when busy, wants to get in and out.", "r"),
           n("p6", 8, "A busy store still gets my business; a busy theater doesn't.", "Stores are different though. If a store is busy, I'll typically still go in and get what I need."),
           n("p6", 8, "Wouldn't stay for a movie if the theater were extremely crowded.", "I also wouldn't really want to stay for a movie if the theater was extremely crowded."),
@@ -71,14 +71,14 @@ const THEMES = [
       {
         label: "And the baseline weight varies a lot from person to person",
         notes: [
-          n("p6", 3, "Pretty important — I don't like being around a lot of people.", "Pretty important. I don't really like being around a lot of people, so if I know a place is going to be really crowded, I wouldn't typically go, or I would look for another place."),
+          n("p6", 3, "Pretty important, because I don't like being around a lot of people.", "Pretty important. I don't really like being around a lot of people, so if I know a place is going to be really crowded, I wouldn't typically go, or I would look for another place."),
           n("p3", 3, "Medium. Nobody wants to wait, but it isn't a huge concern.", "Medium. Nobody wants to wait or be crowded, but where they go, it isn't a huge concern.", "r"),
-          n("p5", 3, "Not super important — nice to know, but I'll just wait.", "Not super important. Nice to know ahead, but if it's busy when they get there, they'll just wait.", "r"),
+          n("p5", 3, "Not super important. Nice to know, but I'll just wait.", "Not super important. Nice to know ahead, but if it's busy when they get there, they'll just wait.", "r"),
           n("p7", 3, "Somewhat important, and entirely situational.", "Somewhat important. If it's a restaurant, I like knowing whether or not it's busy.")
         ]
       }
     ],
-    impl: "Busyness is not one number. A full cafe is a <b>failed trip</b> for a student and a <b>good sign</b> for a Friday night out. Let a report carry the venue type and let the user state which direction they want &mdash; BusyBee's vibe tags are the hook for this, and the gauge should read against the user's intent, not an absolute scale."
+    impl: "Busyness is not one number. A full cafe is a <b>failed trip</b> for a student and a <b>good sign</b> for a Friday night out. Let a report carry the venue type and let the user state which direction they want. BusyBee's vibe tags are the hook for this, and the gauge should read against the user's intent, not an absolute scale."
   },
 
   {
@@ -88,7 +88,7 @@ const THEMES = [
       {
         label: "Google's graph knows the pattern, not the day",
         notes: [
-          n("p2", 4, "Popular times is a vibe — right about the shape, blind to today.", "Google Maps has the popular times thing, and it's a vibe. It's right about the general shape, lunch is busy obviously, but it doesn't know anything about today."),
+          n("p2", 4, "Popular times is a vibe: right about the shape, blind to today.", "Google Maps has the popular times thing, and it's a vibe. It's right about the general shape, lunch is busy obviously, but it doesn't know anything about today."),
           n("p2", 4, "It doesn't know it's midterms.", "It doesn't know it's midterms. During finals every cafe near the library is full at eleven at night and the graph says quiet, because normally it would be."),
           n("p4", 4, "Google predicted busyness is the only thing I use.", "Google predicted busyness.", "r"),
           n("p5", 4, "Usually just a Google-based wait time.", "Usually just a Google based wait time.", "r"),
@@ -99,7 +99,7 @@ const THEMES = [
         label: "The official number burned me once and I stopped believing it",
         notes: [
           n("p1", 4, "The published airport wait said ten minutes. I stood there forty.", "For the airport there's the wait time they publish and I've stopped trusting it. It told me ten minutes once and I stood there the better part of forty."),
-          n("p1", 4, "I never found out whether it was wrong or just old — that's what bothers me.", "I don't know whether it was wrong or whether it was just old, and that's the part that bothers me."),
+          n("p1", 4, "I never found out whether it was wrong or just old, and that's what bothers me.", "I don't know whether it was wrong or whether it was just old, and that's the part that bothers me."),
           n("p1", 10, "An hour-old number gets ignored, same as I ignore the signs now.", "And if it was an hour old I'd ignore it, same as I ignore the signs now.")
         ]
       },
@@ -107,13 +107,13 @@ const THEMES = [
         label: "So I improvise, or I use nothing at all",
         notes: [
           n("p6", 4, "I don't use anything. I go and find out when I arrive.", "I don't really use anything right now to check wait times or how busy somewhere is before I go. Most of the time I just go there and find out once I arrive."),
-          n("p2", 4, "I check Instagram stories — you can tell if a place is rammed.", "And sometimes I'll check whether a place got tagged on Instagram recently, you can tell from a story whether it's rammed."),
+          n("p2", 4, "I check Instagram stories, because you can tell if a place is rammed.", "And sometimes I'll check whether a place got tagged on Instagram recently, you can tell from a story whether it's rammed."),
           n("p7", 4, "Maps for traffic, the website for a posted wait, then a phone call.", "I'll usually check Google Maps or Apple Maps to see how long the drive is and what traffic looks like. For restaurants, I'll look online to see if there are reservations available or if they have a wait time posted."),
           n("p7", 4, "No single source is enough on its own.", "Sometimes I'll call ahead and ask how busy they are or if they have any tables open.")
         ]
       }
     ],
-    impl: "Every score needs a <b>visible age</b>. The competitor is a historical average, so BusyBee wins by never showing one &mdash; live-only reports with a 30-minute decay, and a timestamp shown as prominently as the score itself."
+    impl: "Every score needs a <b>visible age</b>. The competitor is a historical average, so BusyBee wins by never showing one: live-only reports with a 30-minute decay, and a timestamp shown as prominently as the score itself."
   },
 
   {
@@ -123,7 +123,7 @@ const THEMES = [
       {
         label: "I message whoever is already inside",
         notes: [
-          n("p2", 4, "Someone at the library beats any app — they're looking right at it.", "Mostly I just message someone who's there. If someone from my course is at the library I'll ask if there's space, and that's better than any app because they're looking right at it."),
+          n("p2", 4, "Someone at the library beats any app, because they're looking right at it.", "Mostly I just message someone who's there. If someone from my course is at the library I'll ask if there's space, and that's better than any app because they're looking right at it."),
           n("p1", 4, "My wife texts me which checkpoint is actually moving.", "My wife goes through a different checkpoint and texts me which one is moving.")
         ]
       },
@@ -137,7 +137,7 @@ const THEMES = [
       {
         label: "I trust people whose job keeps them there all day",
         notes: [
-          n("p1", 4, "The shuttle driver has done forty runs — he knows which terminal is a mess.", "The shuttle driver has done forty runs that morning, he knows which terminal is a mess.")
+          n("p1", 4, "The shuttle driver has done forty runs, so he knows which terminal is a mess.", "The shuttle driver has done forty runs that morning, he knows which terminal is a mess.")
         ]
       },
       {
@@ -149,7 +149,7 @@ const THEMES = [
         ]
       }
     ],
-    impl: "Frame a report as <b>eyewitness testimony, not prediction</b>. Lead with the human fact &mdash; &ldquo;4 people reported from here in the last 12 minutes&rdquo; &mdash; and keep the aggregation logic out of the way. The product BusyBee is replacing is a text message from a friend."
+    impl: "Frame a report as <b>eyewitness testimony, not prediction</b>. Lead with the human fact, such as &ldquo;4 people reported from here in the last 12 minutes&rdquo;, and keep the aggregation logic out of the way. The product BusyBee is replacing is a text message from a friend."
   },
 
   {
@@ -160,7 +160,7 @@ const THEMES = [
         label: "I pad the schedule and eat the cost",
         notes: [
           n("p1", 5, "I add more time. That's the whole strategy, there isn't a second one.", "I add more time. That's the whole strategy, there isn't a second one."),
-          n("p1", 5, "Holiday or a tight connection — another forty-five minutes on top.", "If it's a holiday, or I've got a connection I can't afford to miss, another forty five minutes on top."),
+          n("p1", 5, "Holiday or a tight connection means another forty-five minutes on top.", "If it's a holiday, or I've got a connection I can't afford to miss, another forty five minutes on top."),
           n("p1", 5, "Early costs a coffee. Late costs a flight, a rebooking and a hotel.", "The cost of being early is a coffee and a magazine. The cost of being late is a missed flight, a rebooking fee and a night in a hotel. Those aren't the same size, so I don't treat them the same.")
         ]
       },
@@ -188,23 +188,23 @@ const THEMES = [
         notes: [
           n("p6", 6, "More than half the time I go out.", "Probably more than half of the time that I go out."),
           n("p4", 6, "Two or three times a week.", "Happens about 2 to 3 times a week.", "r"),
-          n("p5", 6, "Pretty often — about once every week.", "Pretty often, probably once every week.", "r"),
+          n("p5", 6, "Pretty often, about once every week.", "Pretty often, probably once every week.", "r"),
           n("p2", 6, "Weekly, and more during midterms and finals.", "Honestly, weekly. Probably more during midterms and finals."),
           n("p7", 6, "About 25% of the time for places; for traffic, every day.", "If we're talking about traffic, every day. For actual places, I'd say maybe 25% of the time."),
           n("p1", 6, "A few times a year at the airport; about monthly locally.", "A few times a year at the airport, where it actually matters. Locally, maybe once a month we'll walk somewhere on a Saturday and turn straight around."),
-          n("p3", 6, "Rarely — about four times a year, because I rarely go out.", "Pretty rarely, about 4 times a year, due to the infrequency of going out (separate from daily highway traffic).", "r")
+          n("p3", 6, "Rarely, about four times a year, because I rarely go out.", "Pretty rarely, about 4 times a year, due to the infrequency of going out (separate from daily highway traffic).", "r")
         ]
       },
       {
         label: "Each failure is trivial, so the total stays invisible",
         notes: [
-          n("p2", 5, "Twenty minutes here, twenty there — half my study time, some weeks.", "Although if I actually think about it, that happens a lot, and it adds up. Twenty minutes here, twenty there. Some weeks I feel like I've spent half my study time looking for somewhere to study."),
+          n("p2", 5, "Twenty minutes here, twenty there, and some weeks it's half my study time.", "Although if I actually think about it, that happens a lot, and it adds up. Twenty minutes here, twenty there. Some weeks I feel like I've spent half my study time looking for somewhere to study."),
           n("p2", 6, "It's so normal I don't register it as something going wrong.", "It's so normal that I don't really register it as a thing that's going wrong. It's just what happens."),
           n("p1", 6, "The airport ones stay with you. The restaurant ones are gone by morning.", "The airport ones stay with you though. The restaurant ones you've forgotten by the next day.")
         ]
       }
     ],
-    impl: "The behaviour BusyBee replaces is <b>padding and gambling</b>, not searching. Success is a trip not wasted &mdash; so the confirmation screen should tell the reporter what their report prevented, and the app should be measured in avoided trips rather than sessions."
+    impl: "The behaviour BusyBee replaces is <b>padding and gambling</b>, not searching. Success is a trip not wasted, so the confirmation screen should tell the reporter what their report prevented, and the app should be measured in avoided trips rather than sessions."
   },
 
   {
@@ -224,7 +224,7 @@ const THEMES = [
       {
         label: "High stakes produce dread, anxiety and stress",
         notes: [
-          n("p1", 7, "Not irritation — a low-level dread that builds while you stand there.", "At the airport it isn't irritation, it's a low level dread that builds the whole time you're standing there."),
+          n("p1", 7, "Not irritation, but a low-level dread that builds while you stand there.", "At the airport it isn't irritation, it's a low level dread that builds the whole time you're standing there."),
           n("p1", 7, "You do the arithmetic over and over: another fifteen minutes, then what?", "You're doing the arithmetic over and over. If this line takes another fifteen minutes, where does that put me."),
           n("p6", 7, "It makes me anxious when it's much more crowded than I expected.", "It makes me anxious, especially when a place is much more crowded than I was expecting."),
           n("p4", 7, "Stressed about wasting time.", "Stressed about wasting time.", "r")
@@ -240,12 +240,12 @@ const THEMES = [
       {
         label: "There's a social sting on top of the lost time",
         notes: [
-          n("p2", 7, "Walking in, seeing it's full, and walking straight back out — everyone watches.", "If I'm on my own there's a bit of embarrassment in walking in, seeing it's full, and having to turn round and walk straight back out. Everyone watches you do it."),
-          n("p2", 7, "Annoyed at myself, which is stupid — there was no way to know.", "Annoyed, but mostly at myself, which is stupid because there was no way for me to know.")
+          n("p2", 7, "Walking in, seeing it's full, and walking straight back out while everyone watches.", "If I'm on my own there's a bit of embarrassment in walking in, seeing it's full, and having to turn round and walk straight back out. Everyone watches you do it."),
+          n("p2", 7, "Annoyed at myself, which is stupid, because there was no way to know.", "Annoyed, but mostly at myself, which is stupid because there was no way for me to know.")
         ]
       }
     ],
-    impl: "Tone must scale with stakes. A restaurant deserves the calm half-circle gauge; a high-consequence context deserves unambiguous lead-time language and a bias toward over-warning. And because people <b>blame themselves</b> for a wasted trip, the empty state should say the data isn't there yet &mdash; never imply the user missed something."
+    impl: "Tone must scale with stakes. A restaurant deserves the calm half-circle gauge; a high-consequence context deserves unambiguous lead-time language and a bias toward over-warning. And because people <b>blame themselves</b> for a wasted trip, the empty state should say the data isn't there yet, and never imply the user missed something."
   },
 
   {
@@ -265,7 +265,7 @@ const THEMES = [
         ]
       },
       {
-        label: "For some trips it isn't a wait at all — it's pass or fail",
+        label: "For some trips it isn't a wait at all, it's pass or fail",
         notes: [
           n("p2", 8, "Either there's a table or there isn't. There's nothing to wait for.", "For studying it isn't about the wait at all, it's just binary. Either there's a table or there isn't. If there's nowhere to sit I've already left, there's nothing to wait for.")
         ]
@@ -290,7 +290,7 @@ const THEMES = [
         ]
       }
     ],
-    impl: "The walk-away number spans <b>0 to 45 minutes</b> across seven people. A single &ldquo;Busy&rdquo; badge can't serve that range &mdash; let users set a personal threshold and alert against it, and support a <b>capacity state</b> (&ldquo;no tables&rdquo;) alongside a wait in minutes, because for study trips the wait is irrelevant."
+    impl: "The walk-away number spans <b>0 to 45 minutes</b> across seven people. A single &ldquo;Busy&rdquo; badge can't serve that range, so let users set a personal threshold and alert against it, and support a <b>capacity state</b> (&ldquo;no tables&rdquo;) alongside a wait in minutes, because for study trips the wait is irrelevant."
   },
 
   {
@@ -301,8 +301,8 @@ const THEMES = [
         label: "How often the question even comes up",
         notes: [
           n("p4", 1, "Three to four times a day, most likely three.", "3 to 4 times a day, most likely 3.", "r"),
-          n("p7", 1, "Almost every day — gym six days a week, store weekly, work, long drives.", "I leave the house almost every day. I go to the gym six days a week, the store about once a week, and then I have work, or I'll drive all the way to Flint."),
-          n("p6", 1, "Almost every day — usually a store, or getting something to eat.", "I go out almost every day. Usually there is something I need to do, like going to a store or getting something to eat."),
+          n("p7", 1, "Almost every day: gym six days a week, store weekly, work, long drives.", "I leave the house almost every day. I go to the gym six days a week, the store about once a week, and then I have work, or I'll drive all the way to Flint."),
+          n("p6", 1, "Almost every day, usually a store or getting something to eat.", "I go out almost every day. Usually there is something I need to do, like going to a store or getting something to eat."),
           n("p2", 1, "Every day. Campus five days a week, and I never study at home.", "Every day basically, if going out counts as leaving the house. I'm on campus five days a week and I never study at home, so that's a cafe or the library most days."),
           n("p1", 1, "Most days, plus six or eight trips a year.", "Most days, in some form. Being retired means the week doesn't have the shape it used to have... And there's the travel, which is the big one. Six or eight trips a year."),
           n("p5", 1, "At least once or twice every week.", "At least once or twice every week.", "r"),
@@ -312,8 +312,8 @@ const THEMES = [
       {
         label: "The decision window closes when I set off",
         notes: [
-          n("p1", 8, "I'd want to know before I left the house — that's my only moment of choice.", "Which is exactly why I'd want to know before I left the house, because that's the only moment I've got any choice in it."),
-          n("p4", 2, "Always plans ahead — hates walking around not knowing what they need.", "Always plans ahead. Last thing they want is to walk around not knowing what they need.", "r"),
+          n("p1", 8, "I'd want to know before I left the house, because that's my only moment of choice.", "Which is exactly why I'd want to know before I left the house, because that's the only moment I've got any choice in it."),
+          n("p4", 2, "Always plans ahead, and hates walking around not knowing what they need.", "Always plans ahead. Last thing they want is to walk around not knowing what they need.", "r"),
           n("p6", 2, "I like knowing where I'm going and how long I'll be there.", "I usually plan ahead before I go somewhere. I like knowing where I'm going and having an idea of how long I will be there."),
           n("p5", 2, "Usually a plan-ahead type of person.", "Usually a plan ahead type of person.", "r")
         ]
@@ -331,14 +331,14 @@ const THEMES = [
       {
         label: "Choosing where to go is a group negotiation, not a plan",
         notes: [
-          n("p2", 2, "Six people in a group chat for twenty minutes, not planning — negotiating.", "Going out with friends is the opposite, except it isn't really planning, it's negotiating. Six people in a group chat for twenty minutes."),
+          n("p2", 2, "Six people in a group chat for twenty minutes, not planning but negotiating.", "Going out with friends is the opposite, except it isn't really planning, it's negotiating. Six people in a group chat for twenty minutes."),
           n("p2", 2, "Someone suggests a place, someone checks Maps, someone says it was awful.", "Someone suggests a place, someone checks Maps, someone says they went last Friday and it was awful.")
         ]
       },
       {
         label: "If contributing costs me anything, I skip it",
         notes: [
-          n("p2", 10, "More than a couple of seconds and I'm not doing it — I'm already walking.", "It would need to be quick, too. If reporting takes more than a couple of seconds I'm not doing it, I'm already walking."),
+          n("p2", 10, "More than a couple of seconds and I'm not doing it, because I'm already walking.", "It would need to be quick, too. If reporting takes more than a couple of seconds I'm not doing it, I'm already walking."),
           n("p4", 3, "Wants to get in and get out.", "Grocery stores are also a mess when busy, wants to get in and out.", "r")
         ]
       },
@@ -354,7 +354,7 @@ const THEMES = [
 
   {
     id: "T8",
-    label: "People already warn each other — they just don't call it reporting",
+    label: "People already warn each other, they just don't call it reporting",
     groups: [
       {
         label: "I tell my group the moment I see it",
@@ -366,10 +366,10 @@ const THEMES = [
       {
         label: "But only for people I'm meeting, or people who ask",
         notes: [
-          n("p3", 9, "Yes — when a friend is meeting up, or going separately.", "Yes, both when a friend is coming to meet up or when they are going separately, will let them know.", "r"),
+          n("p3", 9, "Yes, when a friend is meeting up or going separately.", "Yes, both when a friend is coming to meet up or when they are going separately, will let them know.", "r"),
           n("p5", 9, "If they're coming to meet up I'll tell them before they head over.", "If they are coming to meet up, they'll let them know before heading over.", "r"),
           n("p6", 9, "If I knew someone was thinking of going, I might tell them.", "Probably. I've definitely talked about how busy places are. If I knew someone else was thinking about going there, I might tell them how crowded it was."),
-          n("p7", 9, "Yeah — can't name a time, but if I'm there first I say something.", "Yeah. I can't really think of a specific time, but if I'm meeting someone somewhere and I get there first, I'll usually let them know if it's really busy.")
+          n("p7", 9, "Yeah. Can't name a time, but if I'm there first I say something.", "Yeah. I can't really think of a specific time, but if I'm meeting someone somewhere and I get there first, I'll usually let them know if it's really busy.")
         ]
       },
       {
@@ -392,17 +392,17 @@ const THEMES = [
         ]
       }
     ],
-    impl: "The reporting behaviour exists &mdash; it's just trapped in group chats. Two moves unlock it: give a report a <b>share-to-chat path</b> so posting publicly costs nothing extra, and close the loop with a <b>reciprocity receipt</b> (&ldquo;you kept 12 people out of that line&rdquo;) rather than abstract points, because &ldquo;what am I getting out of it&rdquo; is the real objection."
+    impl: "The reporting behaviour exists, it's just trapped in group chats. Two moves unlock it: give a report a <b>share-to-chat path</b> so posting publicly costs nothing extra, and close the loop with a <b>reciprocity receipt</b> (&ldquo;you kept 12 people out of that line&rdquo;) rather than abstract points, because &ldquo;what am I getting out of it&rdquo; is the real objection."
   },
 
   {
     id: "T9",
-    label: "Trust is conditional — not one participant said yes outright",
+    label: "Trust is conditional, and not one participant said yes outright",
     groups: [
       {
         label: "Show me when it was posted",
         notes: [
-          n("p1", 10, "More than the official number — provided I can see when it was posted.", "More than the official number, I think, provided I could see when it was posted."),
+          n("p1", 10, "More than the official number, provided I can see when it was posted.", "More than the official number, I think, provided I could see when it was posted."),
           n("p1", 10, "An hour old and I ignore it, same as I ignore the signs now.", "And if it was an hour old I'd ignore it, same as I ignore the signs now.")
         ]
       },
@@ -424,7 +424,7 @@ const THEMES = [
         label: "It has to be right the times I actually check",
         notes: [
           n("p2", 10, "I'd know within about two weeks whether to keep it.", "Whether I'd keep it depends on whether it's ever right when I check it, and I'd work that out within about two weeks."),
-          n("p6", 10, "Probably — as long as it's run well and the information seems accurate.", "Probably, as long as the app was run well and the information seemed accurate."),
+          n("p6", 10, "Probably, as long as it's run well and the information seems accurate.", "Probably, as long as the app was run well and the information seemed accurate."),
           n("p5", 10, "Yes, if the results are reliable.", "Yes, if the results are reliable and there is a community already using it.", "r"),
           n("p4", 10, "Doesn't know, maybe. Would have to trial and error it.", "Doesn't know, maybe. Would have to trial and error it.", "r")
         ]
@@ -445,12 +445,12 @@ const THEMES = [
         ]
       }
     ],
-    impl: "Trust signals are <b>features, not polish</b>. Ship the timestamp, the reporter count and the decay on the face of the score; write a plain-language page on how false reports are handled and link it from the gauge; and seed venues so no one's first open is an empty map. Name Waze and GasBuddy in onboarding &mdash; two participants reached for them unprompted."
+    impl: "Trust signals are <b>features, not polish</b>. Ship the timestamp, the reporter count and the decay on the face of the score; write a plain-language page on how false reports are handled and link it from the gauge; and seed venues so no one's first open is an empty map. Name Waze and GasBuddy in onboarding, since two participants reached for them unprompted."
   }
 ];
 
 /* ---------------------------------------------------------------------------
-   PERSONAS — derived from the affinity wall above.
+   PERSONAS, derived from the affinity wall above.
    Names retained from the team's earlier research pass; substance re-grounded
    in the Phase 2 interview data. Each persona names the participants and the
    themes it was built from.
@@ -473,15 +473,15 @@ const PERSONAS = [
     ],
     frustrations: [
       "Published wait times are stale, and there is no way to tell stale from wrong",
-      "Once she is in the line there is no leaving &mdash; the decision was already made",
+      "Once she is in the line there is no leaving, because the decision was already made",
       "The waiting itself is dread plus arithmetic, not boredom"
     ],
     behaviour: [
       "Adds more time. &ldquo;That's the whole strategy, there isn't a second one.&rdquo;",
-      "Asks people who are physically there &mdash; her wife at another checkpoint, the shuttle driver",
+      "Asks people who are physically there: her wife at another checkpoint, the shuttle driver",
       "Texts the family group the moment she clears a line"
     ],
-    threshold: "20&ndash;30 min for dinner &mdash; but where it matters, no threshold at all",
+    threshold: "20 to 30 min for dinner, but where it matters, no threshold at all",
     trust: "Needs a visible timestamp and a count of how many people reported. Ignores anything an hour old.",
     quote: "The cost of being early is a coffee and a magazine. The cost of being late is a missed flight, a rebooking fee and a night in a hotel. Those aren't the same size.",
     quoteBy: "p1",
@@ -507,15 +507,15 @@ const PERSONAS = [
       "Turning around in a full room is a small public humiliation"
     ],
     behaviour: [
-      "Just goes &mdash; it's a five minute walk, and it's not a big deal any one time",
+      "Just goes, because it's a five minute walk and it's not a big deal any one time",
       "Messages whoever is already inside, because they are looking right at it",
       "Reads Instagram stories to see whether a place is rammed"
     ],
-    threshold: "Binary when studying &mdash; a table or no table. Half an hour socially.",
+    threshold: "Binary when studying: a table or no table. Half an hour socially.",
     trust: "Will try it and decide inside two weeks. Deletes it if the map near campus is empty.",
     quote: "Some weeks I feel like I've spent half my study time looking for somewhere to study.",
     quoteBy: "p2",
-    serves: "Live map with a capacity state, not just a wait in minutes &mdash; and a report that completes in one tap, because if it takes longer she is already walking."
+    serves: "Live map with a capacity state, not just a wait in minutes, and a report that completes in one tap, because if it takes longer she is already walking."
   },
   {
     key: "sam",
@@ -532,20 +532,20 @@ const PERSONAS = [
       "Use a tool that is already populated enough to be worth opening"
     ],
     frustrations: [
-      "Posting for strangers has no visible payoff &mdash; who is even reading it?",
+      "Posting for strangers has no visible payoff, so who is even reading it?",
       "Won't trust a crowd whose moderation story is unexplained",
       "An app with nobody posting is just an empty map"
     ],
     behaviour: [
       "Tells people before they head over, every time",
       "Reports traffic and conditions on Waze already, out of habit",
-      "Assumes good faith &mdash; sees no reason for anyone to call a busy place quiet"
+      "Assumes good faith, seeing no reason for anyone to call a busy place quiet"
     ],
-    threshold: "About 30 min at a restaurant &mdash; but will still enter a busy store to get what he needs",
+    threshold: "About 30 min at a restaurant, but will still enter a busy store to get what he needs",
     trust: "Needs the moderation policy stated plainly, and needs to see the community is already active.",
     quote: "You've stood in it, you don't want the next person standing in it.",
     quoteBy: "p1",
-    serves: "Anonymous bee-name identity removes the exposure objection, and a reciprocity receipt &mdash; who your report actually helped &mdash; answers &ldquo;what am I getting out of it.&rdquo;",
-    revision: "This persona was revised by the Phase 2 data. The earlier draft cast Sam as a leaderboard-and-streak completionist. No participant raised gamification, and three questioned the payoff of contributing at all (P1, P2, P4). The motive the interviews actually support is reciprocity, and the barrier is identity exposure &mdash; so badges and streaks are retention polish, not the reason anyone adopts."
+    serves: "Anonymous bee-name identity removes the exposure objection, and a reciprocity receipt, showing who your report actually helped, answers &ldquo;what am I getting out of it.&rdquo;",
+    revision: "This persona was revised by the Phase 2 data. The earlier draft cast Sam as a leaderboard-and-streak completionist. No participant raised gamification, and three questioned the payoff of contributing at all (P1, P2, P4). The motive the interviews actually support is reciprocity, and the barrier is identity exposure, so badges and streaks are retention polish, not the reason anyone adopts."
   }
 ];
