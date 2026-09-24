@@ -132,6 +132,89 @@
 
   footer.page-footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-faint);}
 
+
+  /* ---------- Phase sub-tabs ---------- */
+  .subtabs{
+    display:flex;gap:4px;flex-wrap:wrap;
+    border-bottom:1px solid var(--border);
+    margin:0 0 24px 0;padding-bottom:0;
+  }
+  .subtab{
+    background:none;border:none;border-bottom:2px solid transparent;
+    color:var(--text-faint);
+    font-family:'IBM Plex Sans',sans-serif;font-size:.9rem;
+    padding:9px 14px;margin-bottom:-1px;cursor:pointer;
+    transition:color .15s ease,border-color .15s ease;
+  }
+  .subtab:hover{color:var(--text-muted);}
+  .subtab.active{color:var(--gold);border-bottom-color:var(--gold);}
+  .subtab:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px;}
+  .subpanel{display:none;}
+  .subpanel.active{display:block;animation:fadein .2s ease;}
+
+  .statline{
+    display:flex;flex-wrap:wrap;gap:18px 30px;
+    padding:16px 0;margin:0 0 22px 0;
+    border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  }
+  .statline div{display:flex;flex-direction:column;}
+  .statline b{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums;}
+  .statline span{font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--text-faint);}
+
+  .theme-list{display:flex;flex-direction:column;gap:10px;margin:0 0 20px 0;}
+  .theme-row{
+    display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start;
+    background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px;
+  }
+  .theme-row .tid{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.8rem;color:var(--gold);
+    background:var(--surface-2);border:1px solid var(--border);border-radius:5px;
+    padding:3px 0;text-align:center;
+  }
+  .theme-row h4{margin:0 0 5px 0;font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;line-height:1.3;color:var(--text);}
+  .theme-row p{margin:0;font-size:.88rem;line-height:1.55;color:var(--text-muted);max-width:none;}
+  .theme-row p.impl{margin-top:7px;padding-top:7px;border-top:1px solid var(--border);color:var(--text-faint);font-size:.83rem;}
+  .theme-row p.impl b{color:var(--text-muted);font-weight:600;}
+
+  .wallframe{
+    border:1px solid var(--border);border-radius:10px;overflow:hidden;
+    background:var(--surface);margin-bottom:14px;
+  }
+  .wallframe iframe{display:block;width:100%;height:min(78vh,760px);border:0;}
+  .framebar{
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;
+    padding:10px 14px;border-top:1px solid var(--border);background:var(--surface-2);
+    font-size:.8rem;color:var(--text-faint);
+  }
+  .framebar a{margin-left:auto;color:var(--gold);text-decoration:none;font-weight:500;white-space:nowrap;}
+  .framebar a:hover{text-decoration:underline;}
+
+  .doclist{display:flex;flex-direction:column;gap:8px;}
+  .doclist a,.doclist span.pending-doc{
+    display:flex;align-items:center;gap:12px;
+    background:var(--surface);border:1px solid var(--border);border-radius:8px;
+    padding:13px 16px;text-decoration:none;color:var(--text);font-size:.9rem;
+  }
+  .doclist a:hover{border-color:var(--gold-dim);background:var(--surface-2);}
+  .doclist span.pending-doc{color:var(--text-faint);border-style:dashed;}
+  .doclist .kind{
+    font-family:'Space Grotesk',sans-serif;font-size:.68rem;letter-spacing:.06em;
+    color:var(--gold);background:var(--surface-2);border:1px solid var(--border);
+    border-radius:4px;padding:2px 7px;flex-shrink:0;
+  }
+  .doclist .note{margin-left:auto;font-size:.76rem;color:var(--text-faint);}
+
+  @media(min-width:1520px){
+    .wallframe{margin-inline:-140px;}
+  }
+  @media(max-width:820px){
+    .subtabs{overflow-x:auto;flex-wrap:nowrap;}
+    .subtab{white-space:nowrap;}
+    .wallframe iframe{height:62vh;}
+    .theme-row{grid-template-columns:1fr;gap:8px;}
+    .theme-row .tid{justify-self:start;padding:3px 10px;}
+  }
+
   /* ---------- Mobile ---------- */
   @media(max-width:820px){
     .app{flex-direction:column;}
@@ -175,7 +258,7 @@
     <nav class="nav">
       <button class="nav-item active" data-target="overview">Overview</button>
       <button class="nav-item" data-target="phase-1">Phase 1: Project Description<span class="status-dot progress"></span></button>
-      <button class="nav-item" data-target="phase-2">Phase 2: User Research<span class="status-dot pending"></span></button>
+      <button class="nav-item" data-target="phase-2">Phase 2: User Research<span class="status-dot progress"></span></button>
       <button class="nav-item" data-target="phase-3">Phase 3: Task Analysis &amp; Requirements<span class="status-dot pending"></span></button>
       <button class="nav-item" data-target="phase-4">Phase 4: Low-Fidelity Prototype<span class="status-dot pending"></span></button>
       <button class="nav-item" data-target="phase-5">Phase 5: High-Fidelity Prototype<span class="status-dot pending"></span></button>
@@ -242,9 +325,159 @@
     <section id="phase-2" class="phase-section">
       <div class="eyebrow">Phase 2</div>
       <h1>User Research</h1>
-      <div class="status-pill"><span class="status-dot pending"></span>Not started</div>
-      <p>Interviews, surveys, and observations to understand who would actually use Busy Bee, and what they need from it. Personas and key findings will go here.</p>
-      <div class="placeholder">Coming once Phase 1 is submitted.</div>
+      <div class="status-pill"><span class="status-dot progress"></span>In progress</div>
+      <p>Seven contextual inquiry interviews with real participants, coded into an affinity diagram and carried forward into personas. Everything produced for this phase lives on this page.</p>
+
+      <div class="subtabs" role="tablist">
+        <button class="subtab active" data-panel="findings">Findings</button>
+        <button class="subtab" data-panel="affinity">Affinity Diagram</button>
+        <button class="subtab" data-panel="personas">Personas</button>
+        <button class="subtab" data-panel="docs">Documents</button>
+      </div>
+
+      <!-- FINDINGS -->
+      <div class="subpanel active" data-panel="findings">
+        <div class="statline">
+          <div><b>7</b><span>Participants</span></div>
+          <div><b>10</b><span>Questions each</span></div>
+          <div><b>137</b><span>Affinity notes</span></div>
+          <div><b>42</b><span>Group labels</span></div>
+          <div><b>9</b><span>Themes</span></div>
+        </div>
+
+        <h2>Method</h2>
+        <p>Each team member ran structured interviews using the same ten questions. Seven interviews were completed: Omar Naguib (P1, P2), Evan Wilkin (P3&ndash;P5) and Nolan Jarvinen (P6, P7). Every response was broken into single-observation notes and grouped bottom-up following Beyer &amp; Holtzblatt's contextual design method, with group labels phrased in the participants' own voice rather than ours.</p>
+        <p>P1, P2, P6 and P7 were captured verbatim. P3, P4 and P5 were recorded as interviewer summaries and are marked as such throughout, so the strength of the evidence behind any single note stays visible.</p>
+
+        <h2>The nine themes</h2>
+        <div class="theme-list">
+          <div class="theme-row">
+            <span class="tid">T1</span>
+            <div>
+              <h4>How much busyness matters is set by the trip, not by the person</h4>
+              <p>4 group labels &middot; 24 notes</p>
+              <p class="impl"><b>Design implication:</b> Busyness is not one number. A full cafe is a <b>failed trip</b> for a student and a <b>good sign</b> for a Friday night out. Let a report carry the venue type and let the user state which direction they want &mdash; BusyBee's vibe tags are the hook for this, and the gauge should read against the user's intent, not an absolute scale.</p>
+            </div>
+          </div>
+          <div class="theme-row">
+            <span class="tid">T2</span>
+            <div>
+              <h4>The tools I have describe last Tuesday, not today</h4>
+              <p>3 group labels &middot; 12 notes</p>
+              <p class="impl"><b>Design implication:</b> Every score needs a <b>visible age</b>. The competitor is a historical average, so BusyBee wins by never showing one &mdash; live-only reports with a 30-minute decay, and a timestamp shown as prominently as the score itself.</p>
+            </div>
+          </div>
+          <div class="theme-row">
+            <span class="tid">T3</span>
+            <div>
+              <h4>A person who is standing there beats any app</h4>
+              <p>4 group labels &middot; 8 notes</p>
+              <p class="impl"><b>Design implication:</b> Frame a report as <b>eyewitness testimony, not prediction</b>. Lead with the human fact &mdash; &ldquo;4 people reported from here in the last 12 minutes&rdquo; &mdash; and keep the aggregation logic out of the way. The product BusyBee is replacing is a text message from a friend.</p>
+            </div>
+          </div>
+          <div class="theme-row">
+            <span class="tid">T4</span>
+            <div>
+              <h4>With no information, I absorb the risk myself</h4>
+              <p>5 group labels &middot; 22 notes</p>
+              <p class="impl"><b>Design implication:</b> The behaviour BusyBee replaces is <b>padding and gambling</b>, not searching. Success is a trip not wasted &mdash; so the confirmation screen should tell the reporter what their report prevented, and the app should be measured in avoided trips rather than sessions.</p>
+            </div>
+          </div>
+          <div class="theme-row">
+            <span class="tid">T5</span>
+            <div>
+              <h4>Being wrong costs composure, not just minutes</h4>
+              <p>4 group labels &middot; 13 notes</p>
+              <p class="impl"><b>Design implication:</b> Tone must scale with stakes. A restaurant deserves the calm half-circle gauge; a high-consequence context deserves unambiguous lead-time language and a bias toward over-warning. And because people <b>blame themselves</b> for a wasted trip, the empty state should say the data isn't there yet &mdash; never imply the user missed something.</p>
+            </div>
+          </div>
+          <div class="theme-row">
+            <span class="tid">T6</span>
+            <div>
+              <h4>Everyone has a walk-away number, and everyone's is different</h4>
+              <p>5 group labels &middot; 12 notes</p>
+              <p class="impl"><b>Design implication:</b> The walk-away number spans <b>0 to 45 minutes</b> across seven people. A single &ldquo;Busy&rdquo; badge can't serve that range &mdash; let users set a personal threshold and alert against it, and support a <b>capacity state</b> (&ldquo;no tables&rdquo;) alongside a wait in minutes, because for study trips the wait is irrelevant.</p>
+            </div>
+          </div>
+          <div class="theme-row">
+            <span class="tid">T7</span>
+            <div>
+              <h4>The only useful moment is before I leave, and I'm already moving</h4>
+              <p>6 group labels &middot; 21 notes</p>
+              <p class="impl"><b>Design implication:</b> Two moments carry the product: <b>pre-departure</b> and <b>on arrival</b>. Reading must work before leaving the house; reporting must be a single tap from a notification or widget in under two seconds, with the slider, tags and note all strictly optional.</p>
+            </div>
+          </div>
+          <div class="theme-row">
+            <span class="tid">T8</span>
+            <div>
+              <h4>People already warn each other — they just don't call it reporting</h4>
+              <p>5 group labels &middot; 10 notes</p>
+              <p class="impl"><b>Design implication:</b> The reporting behaviour exists &mdash; it's just trapped in group chats. Two moves unlock it: give a report a <b>share-to-chat path</b> so posting publicly costs nothing extra, and close the loop with a <b>reciprocity receipt</b> (&ldquo;you kept 12 people out of that line&rdquo;) rather than abstract points, because &ldquo;what am I getting out of it&rdquo; is the real objection.</p>
+            </div>
+          </div>
+          <div class="theme-row">
+            <span class="tid">T9</span>
+            <div>
+              <h4>Trust is conditional — not one participant said yes outright</h4>
+              <p>6 group labels &middot; 15 notes</p>
+              <p class="impl"><b>Design implication:</b> Trust signals are <b>features, not polish</b>. Ship the timestamp, the reporter count and the decay on the face of the score; write a plain-language page on how false reports are handled and link it from the gauge; and seed venues so no one's first open is an empty map. Name Waze and GasBuddy in onboarding &mdash; two participants reached for them unprompted.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>What surprised us</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Nobody said an unqualified yes</h3>
+            <p>Every single participant attached a condition to trusting a crowdsourced app &mdash; a timestamp, a reporter count, a moderation policy, an existing community, or a two-week trial. Trust signals are not polish here; they are the product.</p>
+          </div>
+          <div class="card">
+            <h3>Walk-away times span 0 to 45 minutes</h3>
+            <p>P3 leaves immediately with two young children in tow; P7 will wait 45 minutes if he is hungry enough. A single &ldquo;Busy&rdquo; badge cannot serve that range, which argues for a user-set threshold.</p>
+          </div>
+          <div class="card">
+            <h3>Busy is not always bad</h3>
+            <p>P2 wants a cafe empty for studying and a bar full on a Friday night. Busyness has a direction, and it changes with intent rather than with the venue.</p>
+          </div>
+          <div class="card">
+            <h3>People already report &mdash; privately</h3>
+            <p>Participants text friends constantly but would not post publicly. P1: &ldquo;Who's reading it? What am I getting out of it?&rdquo; The behaviour exists; the payoff is what is missing.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AFFINITY DIAGRAM -->
+      <div class="subpanel" data-panel="affinity">
+        <p>The full affinity wall, built bottom-up from all seven interviews. Yellow notes are single observations, blue labels group them in the participants' own words, and green labels are the themes. Click any note to read the verbatim response it was coded from.</p>
+        <div class="wallframe">
+          <iframe src="affinity/" title="BusyBee affinity diagram" loading="lazy"></iframe>
+          <div class="framebar">
+            <span>Drag to pan &middot; scroll to zoom &middot; click a note for its source quote</span>
+            <a href="affinity/" target="_blank" rel="noopener">Open full screen &#8599;</a>
+          </div>
+        </div>
+        <p>The wall also carries a <strong>Document</strong> view &mdash; the same content laid out linearly, which is what appears in the written deliverable and what prints to PDF.</p>
+      </div>
+
+      <!-- PERSONAS -->
+      <div class="subpanel" data-panel="personas">
+        <p>Three personas derived from the affinity themes, each traceable to the participants and themes it was built from.</p>
+        <div class="placeholder">
+          <strong>In progress</strong>
+          Draft personas (Maya, Jordan, Sam) are written and grounded in the affinity data. They are being rebuilt to match the required Xtensio template before they are published here.
+        </div>
+      </div>
+
+      <!-- DOCUMENTS -->
+      <div class="subpanel" data-panel="docs">
+        <p>Deliverables and source material for this phase.</p>
+        <div class="doclist">
+          <span class="pending-doc"><span class="kind">PDF</span>Contextual Inquiry Master &mdash; all seven interview transcripts<span class="note">to upload</span></span>
+          <span class="pending-doc"><span class="kind">PDF</span>Affinity diagram &mdash; document view export<span class="note">to upload</span></span>
+          <span class="pending-doc"><span class="kind">DOCX</span>Phase 2 written deliverable<span class="note">to upload</span></span>
+          <span class="pending-doc"><span class="kind">PDF</span>Personas<span class="note">not started</span></span>
+        </div>
+      </div>
     </section>
 
     <!-- PHASE 3 -->
@@ -345,6 +578,17 @@
   if (initial && document.getElementById(initial)) {
     showTarget(initial);
   }
+
+
+  // Phase sub-tabs
+  document.querySelectorAll('.subtabs').forEach(bar => {
+    const tabs = bar.querySelectorAll('.subtab');
+    const panels = bar.parentElement.querySelectorAll('.subpanel');
+    tabs.forEach(tab => tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.toggle('active', t === tab));
+      panels.forEach(pn => pn.classList.toggle('active', pn.dataset.panel === tab.dataset.panel));
+    }));
+  });
 
   document.getElementById('update-date').textContent = new Date().toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
 </script>
