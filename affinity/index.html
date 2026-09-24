@@ -106,8 +106,8 @@ body{
 }
 .stage.grabbing{cursor:grabbing}
 .wall{
-  position:absolute;top:0;left:0;transform-origin:0 0;padding:54px;
-  display:grid;grid-template-columns:repeat(3,1088px);gap:52px 44px;align-items:start;
+  position:absolute;top:0;left:0;transform-origin:0 0;padding:34px;
+  display:grid;grid-template-columns:repeat(3,1020px);gap:40px 34px;align-items:start;
 }
 
 /* ---------- theme block ---------- */
@@ -180,6 +180,8 @@ body{
 .impl p b{font-weight:600}
 
 /* ---------- legend ---------- */
+body.embedded .key{display:none}
+body.embedded .pbar .lab{display:none}
 .key{
   position:absolute;left:14px;bottom:14px;z-index:20;background:rgba(35,31,22,.93);
   color:var(--chrome-ink);border:1px solid #000;border-radius:8px;padding:11px 13px;

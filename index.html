@@ -180,7 +180,7 @@
     border:1px solid var(--border);border-radius:10px;overflow:hidden;
     background:var(--surface);margin-bottom:14px;
   }
-  .wallframe iframe{display:block;width:100%;height:min(78vh,760px);border:0;}
+  .wallframe iframe{display:block;width:100%;height:clamp(520px,82vh,900px);border:0;}
   .framebar{
     display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;
     padding:10px 14px;border-top:1px solid var(--border);background:var(--surface-2);
@@ -204,9 +204,9 @@
   }
   .doclist .note{margin-left:auto;font-size:.76rem;color:var(--text-faint);}
 
-  @media(min-width:1520px){
-    .wallframe{margin-inline:-140px;}
-  }
+  @media(min-width:1360px){ .wallframe{width:calc(100% + 190px);} }
+  @media(min-width:1660px){ .wallframe{width:calc(100% + 400px);} }
+  @media(min-width:1900px){ .wallframe{width:calc(100% + 620px);} }
   @media(max-width:820px){
     .subtabs{overflow-x:auto;flex-wrap:nowrap;}
     .subtab{white-space:nowrap;}
@@ -258,7 +258,7 @@
     <nav class="nav">
       <button class="nav-item active" data-target="overview">Overview</button>
       <button class="nav-item" data-target="phase-1">Phase 1: Project Description<span class="status-dot progress"></span></button>
-      <button class="nav-item" data-target="phase-2">Phase 2: User Research<span class="status-dot progress"></span></button>
+      <button class="nav-item" data-target="phase-2">Phase 2: User Research<span class="status-dot complete"></span></button>
       <button class="nav-item" data-target="phase-3">Phase 3: Task Analysis &amp; Requirements<span class="status-dot pending"></span></button>
       <button class="nav-item" data-target="phase-4">Phase 4: Low-Fidelity Prototype<span class="status-dot pending"></span></button>
       <button class="nav-item" data-target="phase-5">Phase 5: High-Fidelity Prototype<span class="status-dot pending"></span></button>
@@ -298,26 +298,37 @@
       <div class="eyebrow">Phase 1</div>
       <h1>Project Description</h1>
       <div class="status-pill"><span class="status-dot progress"></span>In progress</div>
-      <p>This phase is just getting underway in class. The structure below is ready — content goes in as we draft it.</p>
+      <p>What Busy Bee is, who it is for, and how we intend to build it over the semester.</p>
 
-      <div class="placeholder">
-        <strong>Problem statement</strong>
-        What problem does Busy Bee solve, and for whom? (1–2 paragraphs)
+      <div class="card">
+        <h3>Problem statement</h3>
+        <p>There is no reliable way to find out how busy a place is <em>right now</em>. The tools people have describe the past: Google's popular times is a historical average that cannot know it is midterms week, posted wait times go stale without saying so, and reviews describe a visit that happened months ago. So people guess. They pad their schedules, take their chances, or drive somewhere and turn around in the parking lot.</p>
+        <p>Busy Bee closes that gap the way Waze closed it for traffic. People already inside a place submit a two-second report, and those reports aggregate into a live busyness score anyone can check before they leave. Reports expire after 30 minutes, so the score always describes the present rather than a pattern. It works for any physical establishment &mdash; restaurants, cafes, gyms, stores, airport security lines &mdash; because the underlying problem is the same everywhere: the only person who really knows what it is like inside is someone standing in it.</p>
       </div>
-      <br>
-      <div class="placeholder">
-        <strong>Target users</strong>
-        Who is this for — students, commuters, parents, etc.? What do they currently do instead?
+
+      <div class="card">
+        <h3>Target users</h3>
+        <p>Anyone whose plans change based on how crowded somewhere is &mdash; which, in our Phase 2 research, turned out to be everyone we interviewed, for very different reasons. Three groups emerged from that data.</p>
+        <p><strong>People under time pressure</strong>, where being wrong is expensive rather than annoying &mdash; a security line before a flight, an errand squeezed between commitments. They currently manage the risk by padding their schedule, sometimes by 45 minutes.</p>
+        <p><strong>Spontaneous, socially-driven users</strong>, mostly students, who decide where to go while already walking and coordinate in group chats. A full cafe means a wasted trip; a dead bar on a Friday night means the wrong choice. They need busyness read in both directions.</p>
+        <p><strong>Crowd-averse and family users</strong>, who avoid crowds rather than endure them. With young children along, any wait at all can end the outing.</p>
+        <p>Today all three do the same things instead: check Google's historical graph and distrust it, text someone already there, call the venue, or simply show up and find out.</p>
       </div>
-      <br>
-      <div class="placeholder">
-        <strong>Goals &amp; objectives</strong>
-        What does success look like for this project by the end of the semester?
+
+      <div class="card">
+        <h3>Goals &amp; objectives</h3>
+        <p>By the end of the semester we intend to have a working mobile app, validated against real users, that does four things.</p>
+        <p><strong>Answer the question before departure.</strong> Our research found the decision window closes the moment someone sets off, so the live score has to be readable in seconds, with its own age shown next to it.</p>
+        <p><strong>Make reporting effectively free.</strong> One tap, under two seconds, no typing required &mdash; because participants told us plainly that anything slower gets skipped.</p>
+        <p><strong>Earn trust explicitly.</strong> Not one participant said they would trust a crowdsourced app without conditions. Timestamps, reporter counts, decay and a plain-language moderation policy are therefore features, not polish.</p>
+        <p><strong>Avoid the empty map.</strong> An app with nobody posting is worse than no app at all, so seeding venues and concentrating early users geographically matters as much as the interface does.</p>
       </div>
-      <br>
-      <div class="placeholder">
-        <strong>Approach</strong>
-        Brief overview of the design process we'll follow (research → ideation → prototyping → evaluation).
+
+      <div class="card">
+        <h3>Approach</h3>
+        <p>We are following the standard HCI design process across seven phases, documented on this site as we go.</p>
+        <p><strong>Research</strong> &mdash; contextual inquiry interviews with real participants, coded into an affinity diagram and carried forward into personas (Phase 2). <strong>Ideation</strong> &mdash; task analysis and requirements drawn from those findings (Phase 3). <strong>Prototyping</strong> &mdash; low-fidelity wireframes tested cheaply and revised, then a high-fidelity interactive build in React Native and Expo (Phases 4 and 5). <strong>Evaluation</strong> &mdash; usability testing against the tasks identified in Phase 3, with findings fed back into the design (Phase 6). <strong>Reflection</strong> &mdash; what the process changed about the product, and what we would do differently (Phase 7).</p>
+        <p>Each phase produces an artifact that lives on this portfolio rather than in a folder, so the reasoning behind the final design stays visible and traceable back to the people we interviewed.</p>
       </div>
     </section>
 
@@ -325,7 +336,7 @@
     <section id="phase-2" class="phase-section">
       <div class="eyebrow">Phase 2</div>
       <h1>User Research</h1>
-      <div class="status-pill"><span class="status-dot progress"></span>In progress</div>
+      <div class="status-pill"><span class="status-dot complete"></span>Complete</div>
       <p>Seven contextual inquiry interviews with real participants, coded into an affinity diagram and carried forward into personas. Everything produced for this phase lives on this page.</p>
 
       <div class="subtabs" role="tablist">
@@ -461,21 +472,25 @@
 
       <!-- PERSONAS -->
       <div class="subpanel" data-panel="personas">
-        <p>Three personas derived from the affinity themes, each traceable to the participants and themes it was built from.</p>
-        <div class="placeholder">
-          <strong>In progress</strong>
-          Draft personas (Maya, Jordan, Sam) are written and grounded in the affinity data. They are being rebuilt to match the required Xtensio template before they are published here.
+        <p>Three personas built bottom-up from the affinity themes. Every card names the participants and themes behind it, and each pull quote is verbatim from one of the seven interviews. The layout follows the Xtensio persona template used in class.</p>
+        <div class="wallframe">
+          <iframe src="personas/" title="BusyBee personas" loading="lazy"></iframe>
+          <div class="framebar">
+            <span>Maya Whitfield &middot; Jordan Ellis &middot; Sam Okafor</span>
+            <a href="personas/" target="_blank" rel="noopener">Open full screen &#8599;</a>
+          </div>
         </div>
+        <p>Personality sliders and the numeric levels on the Motivation and Apps bars are our reading of the interviews rather than something participants reported. The cards say so explicitly, so nothing inferred gets mistaken for a finding.</p>
       </div>
 
       <!-- DOCUMENTS -->
       <div class="subpanel" data-panel="docs">
-        <p>Deliverables and source material for this phase.</p>
+        <p>Source material for this phase.</p>
         <div class="doclist">
-          <span class="pending-doc"><span class="kind">PDF</span>Contextual Inquiry Master &mdash; all seven interview transcripts<span class="note">to upload</span></span>
-          <span class="pending-doc"><span class="kind">PDF</span>Affinity diagram &mdash; document view export<span class="note">to upload</span></span>
-          <span class="pending-doc"><span class="kind">DOCX</span>Phase 2 written deliverable<span class="note">to upload</span></span>
-          <span class="pending-doc"><span class="kind">PDF</span>Personas<span class="note">not started</span></span>
+          <a href="docs/BusyBee_Contextual_Inquiry_Master.pdf" target="_blank" rel="noopener">
+            <span class="kind">PDF</span>Contextual Inquiry Master &mdash; all seven interview transcripts
+            <span class="note">9 pages</span>
+          </a>
         </div>
       </div>
     </section>

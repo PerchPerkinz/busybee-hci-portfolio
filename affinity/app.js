@@ -350,6 +350,10 @@
   vread.addEventListener("click", () => setView("read"));
 
   /* ---------- boot ---------- */
+  var embedded = false;
+  try { embedded = window.top !== window.self; } catch (e) { embedded = true; }
+  if (embedded) document.body.classList.add("embedded");
+
   function boot() {
     fit();
     if (stage.clientWidth < 620) setView("read");

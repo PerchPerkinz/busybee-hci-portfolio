@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Three personas for BusyBee, derived from seven Phase 2 contextual inquiry interviews. CSC 310 Human-Computer Interaction.">
+<meta name="author" content="Omar Naguib, Nolan Jarvinen, Evan Wilkin">
+<title>BusyBee Personas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root{
+  --bg:#EDEBE4;
+  --card:#FFFFFF;
+  --line:#E2DED2;
+  --ink:#1F1C15;
+  --ink-mid:#4A4536;
+  --ink-soft:#7A7260;
+  --track:#E8E5DB;
+  --chrome:#15130F;
+  --chrome-2:#1E1B15;
+  --chrome-line:#33301F;
+  --chrome-ink:#F5F1E8;
+  --chrome-soft:#A79E8C;
+  --gold:#F2A93B;
+  --teal:#4FB3A9;
+  --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --disp:"Space Grotesk","IBM Plex Sans",-apple-system,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:14px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.topbar{
+  background:var(--chrome);color:var(--chrome-ink);
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;
+  padding:11px 18px;border-bottom:1px solid #000;
+}
+.topbar b{font-family:var(--disp);font-weight:700;font-size:15px;margin-right:auto}
+.topbar .dot{color:var(--gold)}
+.back{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--chrome-soft);text-decoration:none;border:1px solid var(--chrome-line);
+  border-radius:5px;padding:4px 9px;white-space:nowrap;
+}
+.back:hover{color:var(--chrome-ink);border-color:var(--chrome-soft);background:var(--chrome-2)}
+.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.topbar .meta{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--chrome-soft)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 70px}
+.intro{margin:0 0 26px}
+.intro h1{font-family:var(--disp);font-weight:700;font-size:27px;letter-spacing:-.02em;margin:0 0 8px;text-wrap:balance}
+.intro p{margin:0;max-width:74ch;color:var(--ink-mid);font-size:14px;line-height:1.65}
+
+/* ---------- persona card ---------- */
+.persona{
+  background:var(--card);border:1px solid var(--line);border-radius:10px;
+  margin:0 0 30px;overflow:hidden;box-shadow:0 12px 30px -24px rgba(31,28,21,.65);
+}
+.phead{padding:16px 24px;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px}
+.phead h2{margin:0;font-family:var(--disp);font-weight:700;font-size:26px;color:#fff;letter-spacing:-.02em}
+.phead .arch{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.82);background:rgba(0,0,0,.18);
+  border:1px solid rgba(255,255,255,.28);border-radius:20px;padding:3px 11px;
+}
+.phead .trace{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:rgba(255,255,255,.8);letter-spacing:.05em}
+
+.cols{display:grid;grid-template-columns:250px 1fr 260px;gap:0}
+.col{padding:22px 24px}
+.col + .col{border-left:1px solid var(--line)}
+
+h3.sec{
+  font-family:var(--disp);font-weight:700;font-size:19px;letter-spacing:-.015em;
+  margin:0 0 11px;
+}
+h3.sec.sm{font-size:16px}
+
+/* left column */
+.avatar{
+  width:100%;aspect-ratio:4/3;border-radius:7px;display:grid;place-items:center;
+  font-family:var(--disp);font-weight:700;font-size:46px;color:#fff;margin-bottom:14px;
+  letter-spacing:-.02em;
+}
+.quote{
+  background:#F4F2EA;border-radius:7px;padding:14px 16px;margin:0 0 14px;
+  font-style:italic;font-size:13px;line-height:1.55;color:var(--ink-mid);text-align:center;
+}
+.facts{border:1px solid var(--line);border-radius:7px;padding:13px 15px;margin:0 0 18px}
+.facts div{display:flex;gap:6px;font-size:12.5px;line-height:1.5;margin-bottom:3px}
+.facts div:last-child{margin-bottom:0}
+.facts dt{font-weight:600;flex:none}
+.facts dd{margin:0;color:var(--ink-mid)}
+
+.slider{margin-bottom:11px}
+.slider .ends{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-mid);margin-bottom:4px}
+.rail{height:7px;background:var(--track);border-radius:4px;position:relative}
+.rail i{position:absolute;top:-2px;width:11px;height:11px;border-radius:3px;transform:translateX(-50%)}
+
+/* middle column */
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px}
+.pills span{
+  font-size:12px;font-weight:500;color:#fff;border-radius:20px;padding:4px 13px;
+}
+.col ul{margin:0 0 20px;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.col li{font-size:13.5px;line-height:1.5;color:var(--ink-mid)}
+.bio{background:#F4F2EA;border-radius:7px;padding:16px 18px}
+.bio p{margin:0;font-size:13px;line-height:1.65;color:var(--ink-mid)}
+
+/* right column */
+.bar{margin-bottom:10px}
+.bar .lbl{font-size:12.5px;color:var(--ink-mid);margin-bottom:3px}
+.bar .track{height:9px;background:var(--track);border-radius:5px;overflow:hidden}
+.bar .track i{display:block;height:100%;border-radius:5px}
+
+.foot{
+  border-top:1px solid var(--line);background:#FAF9F4;
+  padding:12px 24px;font-size:11.5px;color:var(--ink-soft);line-height:1.55;
+}
+.foot b{color:var(--ink-mid);font-weight:600}
+
+.note{
+  background:#FCFBF5;border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:7px;padding:15px 18px;margin:0 0 30px;
+}
+.note h4{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#B5822A;margin:0 0 7px;font-weight:600}
+.note p{margin:0 0 8px;font-size:13px;line-height:1.6;color:var(--ink-mid);max-width:80ch}
+.note p:last-child{margin-bottom:0}
+
+@media(max-width:1000px){
+  .cols{grid-template-columns:1fr}
+  .col + .col{border-left:0;border-top:1px solid var(--line)}
+  .phead .trace{margin-left:0;width:100%}
+}
+@media print{
+  body{background:#fff}
+  .topbar,.back{display:none}
+  .persona{break-inside:avoid;page-break-inside:avoid;box-shadow:none;margin-bottom:18px}
+  .wrap{padding:0}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="back" href="../#phase-2" target="_top">&larr; Portfolio</a>
+  <b><span class="dot">&#9679;</span> BusyBee Personas</b>
+  <span class="meta">CSC 310 &middot; Phase 2 &middot; Naguib, Jarvinen, Wilkin</span>
+</header>
+
+<div class="wrap">
+  <div class="intro">
+    <h1>Three personas, derived from seven interviews</h1>
+    <p>Each persona below was built bottom-up from the Phase 2 affinity wall rather than from assumption. The footer of every card names the participants and the affinity themes it came from, and the pull quote is a verbatim line from one of those interviews. Layout follows the Xtensio persona template used in class.</p>
+  </div>
+
+  <div id="cards"></div>
+
+  <div class="note">
+    <h4>How to read these</h4>
+    <p><b>Grounded in the data:</b> goals, frustrations, bios, quotes, walk-away behaviour and the apps each persona actually reaches for all come directly from interview responses. Every claim traces to a note on the affinity wall.</p>
+    <p><b>Inferred, not measured:</b> the personality sliders and the numeric levels on the Motivation and Apps bars are our reading of the interviews, not something participants reported. They are directionally supported by what people said but should not be cited as findings.</p>
+    <p><b>Adapted from the template:</b> the class template's Motivation axes (Connection, Recognition, Collaboration&hellip;) and app list (Canvas, Zoom, OneNote&hellip;) come from a campus-collaboration study. We kept the template's structure and replaced those axes with ones our research actually speaks to.</p>
+  </div>
+</div>
+
+<script src="personas.js"></script>
+<script>
+(function(){
+  var html = P.map(function(p){
+    var slid = p.personality.map(function(s){
+      return '<div class="slider"><div class="ends"><span>'+s[0]+'</span><span>'+s[1]+'</span></div>'+
+        '<div class="rail"><i style="left:'+s[2]+'%;background:'+p.accent+'"></i></div></div>';
+    }).join("");
+    var bars = function(rows){
+      return rows.map(function(r){
+        return '<div class="bar"><div class="lbl">'+r[0]+'</div>'+
+          '<div class="track"><i style="width:'+r[1]+'%;background:'+p.accent+'"></i></div></div>';
+      }).join("");
+    };
+    return '<article class="persona">'+
+      '<div class="phead" style="background:'+p.accent+'">'+
+        '<h2>'+p.name+'</h2>'+
+        '<span class="arch">'+p.archetype+'</span>'+
+        '<span class="trace">Derived from '+p.from+'</span>'+
+      '</div>'+
+      '<div class="cols">'+
+        '<div class="col">'+
+          '<div class="avatar" style="background:'+p.accent+'">'+p.name.charAt(0)+'</div>'+
+          '<p class="quote">&ldquo;'+p.quote+'&rdquo;</p>'+
+          '<dl class="facts">'+p.facts.map(function(f){
+            return '<div><dt>'+f[0]+':</dt><dd>'+f[1]+'</dd></div>';
+          }).join("")+'</dl>'+
+          '<h3 class="sec sm">Personality</h3>'+slid+
+        '</div>'+
+        '<div class="col">'+
+          '<div class="pills">'+p.traits.map(function(t){
+            return '<span style="background:'+p.accent+'">'+t+'</span>';
+          }).join("")+'</div>'+
+          '<h3 class="sec">Goals</h3><ul>'+p.goals.map(function(g){return '<li>'+g+'</li>';}).join("")+'</ul>'+
+          '<h3 class="sec">Frustrations</h3><ul>'+p.frustrations.map(function(f){return '<li>'+f+'</li>';}).join("")+'</ul>'+
+          '<div class="bio"><h3 class="sec">Bio</h3><p>'+p.bio+'</p></div>'+
+        '</div>'+
+        '<div class="col">'+
+          '<h3 class="sec sm">Motivation</h3>'+bars(p.motivation)+
+          '<h3 class="sec sm" style="margin-top:20px">Apps Used and Comfort Levels</h3>'+bars(p.apps)+
+        '</div>'+
+      '</div>'+
+      '<div class="foot"><b>Traces to:</b> participants '+p.from+' &middot; affinity themes '+p.themes+
+        ' &mdash; quote recorded verbatim in the Phase 2 interviews.</div>'+
+    '</article>';
+  }).join("");
+  document.getElementById("cards").innerHTML = html;
+})();
+</script>
+</body>
+</html>
