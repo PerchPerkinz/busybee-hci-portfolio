@@ -120,7 +120,7 @@ const P = [
       ["Walk-away", "About 30 min; any wait with the kids"]
     ],
     traits: ["Crowd-averse", "Considerate", "Cautious", "Practical"],
-    quote: "You've stood in it, you don't want the next person standing in it.",
+    quote: "I've definitely talked about how busy places are. If I knew someone else was thinking about going there, I might tell them how crowded it was.",
     personality: [
       ["Introvert", "Extrovert", 18],
       ["Thinking", "Feeling", 64],

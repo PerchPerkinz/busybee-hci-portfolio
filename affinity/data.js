@@ -543,8 +543,8 @@ const PERSONAS = [
     ],
     threshold: "About 30 min at a restaurant, but will still enter a busy store to get what he needs",
     trust: "Needs the moderation policy stated plainly, and needs to see the community is already active.",
-    quote: "You've stood in it, you don't want the next person standing in it.",
-    quoteBy: "p1",
+    quote: "I've definitely talked about how busy places are. If I knew someone else was thinking about going there, I might tell them how crowded it was.",
+    quoteBy: "p6",
     serves: "Anonymous bee-name identity removes the exposure objection, and a reciprocity receipt, showing who your report actually helped, answers &ldquo;what am I getting out of it.&rdquo;",
     revision: "This persona was revised by the Phase 2 data. The earlier draft cast Sam as a leaderboard-and-streak completionist. No participant raised gamification, and three questioned the payoff of contributing at all (P1, P2, P4). The motive the interviews actually support is reciprocity, and the barrier is identity exposure, so badges and streaks are retention polish, not the reason anyone adopts."
   }
