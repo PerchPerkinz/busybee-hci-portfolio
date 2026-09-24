@@ -204,7 +204,7 @@ const THEMES = [
         ]
       }
     ],
-    impl: "The behaviour BusyBee replaces is <b>padding and gambling</b>, not searching. Success is a trip not wasted, so the confirmation screen should tell the reporter what their report prevented, and the app should be measured in avoided trips rather than sessions."
+    impl: "The behavior BusyBee replaces is <b>padding and gambling</b>, not searching. Success is a trip not wasted, so the confirmation screen should tell the reporter what their report prevented, and the app should be measured in avoided trips rather than sessions."
   },
 
   {
@@ -392,7 +392,7 @@ const THEMES = [
         ]
       }
     ],
-    impl: "The reporting behaviour exists, it's just trapped in group chats. Two moves unlock it: give a report a <b>share-to-chat path</b> so posting publicly costs nothing extra, and close the loop with a <b>reciprocity receipt</b> (&ldquo;you kept 12 people out of that line&rdquo;) rather than abstract points, because &ldquo;what am I getting out of it&rdquo; is the real objection."
+    impl: "The reporting behavior exists, it's just trapped in group chats. Two moves unlock it: give a report a <b>share-to-chat path</b> so posting publicly costs nothing extra, and close the loop with a <b>reciprocity receipt</b> (&ldquo;you kept 12 people out of that line&rdquo;) rather than abstract points, because &ldquo;what am I getting out of it&rdquo; is the real objection."
   },
 
   {
@@ -476,7 +476,7 @@ const PERSONAS = [
       "Once she is in the line there is no leaving, because the decision was already made",
       "The waiting itself is dread plus arithmetic, not boredom"
     ],
-    behaviour: [
+    behavior: [
       "Adds more time. &ldquo;That's the whole strategy, there isn't a second one.&rdquo;",
       "Asks people who are physically there: her wife at another checkpoint, the shuttle driver",
       "Texts the family group the moment she clears a line"
@@ -506,7 +506,7 @@ const PERSONAS = [
       "Blames herself for a wasted trip she had no way to predict",
       "Turning around in a full room is a small public humiliation"
     ],
-    behaviour: [
+    behavior: [
       "Just goes, because it's a five minute walk and it's not a big deal any one time",
       "Messages whoever is already inside, because they are looking right at it",
       "Reads Instagram stories to see whether a place is rammed"
@@ -536,7 +536,7 @@ const PERSONAS = [
       "Won't trust a crowd whose moderation story is unexplained",
       "An app with nobody posting is just an empty map"
     ],
-    behaviour: [
+    behavior: [
       "Tells people before they head over, every time",
       "Reports traffic and conditions on Waze already, out of habit",
       "Assumes good faith, seeing no reason for anyone to call a busy place quiet"

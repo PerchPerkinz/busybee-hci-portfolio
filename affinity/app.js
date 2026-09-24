@@ -305,7 +305,7 @@
           '<div class="pgrid">' +
             "<div><h3>Goals</h3><ul>" + li(p.goals) + "</ul></div>" +
             "<div><h3>Frustrations</h3><ul>" + li(p.frustrations) + "</ul></div>" +
-            '<div style="grid-column:1/-1"><h3>What they do today</h3><ul>' + li(p.behaviour) + "</ul></div>" +
+            '<div style="grid-column:1/-1"><h3>What they do today</h3><ul>' + li(p.behavior) + "</ul></div>" +
           "</div>" +
           '<blockquote class="pquote"><p>&ldquo;' + p.quote + "&rdquo;</p>" +
             "<cite>" + PARTICIPANTS[p.quoteBy].id + ", " + PARTICIPANTS[p.quoteBy].role + "</cite></blockquote>" +

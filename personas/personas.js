@@ -5,8 +5,7 @@
 const P = [
   {
     name: "Maya Whitfield",
-    archetype: "The Pragmatist",
-    character: "The Planner",
+    archetype: "The Planner",
     accent: "#E1584E",
     from: "P1, P4",
     themes: "T1, T4, T5, T6, T7",
@@ -16,7 +15,7 @@ const P = [
       ["Travels", "6 to 8 trips a year"],
       ["Goes out", "Most days: groceries, gym, dinner"],
       ["Location", "Metro Detroit, Michigan"],
-      ["Character", "The Planner"]
+      ["Walk-away", "20 to 30 min locally, none when it matters"]
     ],
     traits: ["Methodical", "Early", "Skeptical", "Self-reliant"],
     quote: "The cost of being early is a coffee and a magazine. The cost of being late is a missed flight, a rebooking fee and a night in a hotel. Those aren't the same size.",
@@ -57,8 +56,7 @@ const P = [
   },
   {
     name: "Jordan Ellis",
-    archetype: "The Social Butterfly",
-    character: "The Improviser",
+    archetype: "The Improviser",
     accent: "#F0A32A",
     from: "P2, P7",
     themes: "T1, T2, T4, T5, T7",
@@ -68,7 +66,7 @@ const P = [
       ["Year", "Junior"],
       ["School", "University of Michigan–Flint"],
       ["Location", "Flint, Michigan"],
-      ["Character", "The Improviser"]
+      ["Walk-away", "A table or nothing; 30 min socially"]
     ],
     traits: ["Spontaneous", "Social", "Impatient", "Adaptable"],
     quote: "Some weeks I feel like I've spent half my study time looking for somewhere to study.",
@@ -109,8 +107,7 @@ const P = [
   },
   {
     name: "Sam Okafor",
-    archetype: "The Hermit",
-    character: "The Good Neighbor",
+    archetype: "The Good Neighbor",
     accent: "#8A6BD1",
     from: "P3, P5, P6",
     themes: "T3, T8, T9",
@@ -120,7 +117,7 @@ const P = [
       ["Household", "Partner, two young children"],
       ["Goes out", "Daily errands; dines out rarely"],
       ["Location", "Grand Blanc, Michigan"],
-      ["Character", "The Good Neighbor"]
+      ["Walk-away", "About 30 min; any wait with the kids"]
     ],
     traits: ["Crowd-averse", "Considerate", "Cautious", "Practical"],
     quote: "You've stood in it, you don't want the next person standing in it.",
