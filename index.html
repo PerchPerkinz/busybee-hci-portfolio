@@ -7,6 +7,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+  // set the theme before first paint so a stored light choice does not flash dark
+  (function(){
+    try {
+      document.documentElement.setAttribute('data-theme',
+        localStorage.getItem('bb-theme') === 'light' ? 'light' : 'dark');
+    } catch(e) {}
+  })();
+</script>
 <style>
   :root{
     --bg:#0A0A0B;
@@ -16,76 +25,137 @@
     --gold:#F2A93B;
     --gold-dim:#C98A2E;
     --teal:#4FB3A9;
-    --pending:#4A4A52;
-    --text:#F2F1EE;
-    --text-muted:#A8A7AD;
-    --text-faint:#7E7D84;
+    --pending:#5B5B64;
+    --text:#FFFFFF;
+    --text-muted:#D4D3D9;
+    --text-faint:#A6A5AD;
     --maya:#E1584E;
     --jordan:#F0A32A;
     --sam:#8A6BD1;
-    --maya-on:#E25C52;
+    --maya-on:#EC7168;
     --jordan-on:#F0A32A;
-    --sam-on:#9377D5;
+    --sam-on:#A48BE0;
+    --shadow:0 1px 0 rgba(255,255,255,.03);
+  }
+  [data-theme="light"]{
+    --bg:#F6F5F1;
+    --surface:#FFFFFF;
+    --surface-2:#EFEDE6;
+    --border:#D9D6CC;
+    --gold:#9A6410;
+    --gold-dim:#B07C22;
+    --teal:#17706A;
+    --pending:#B6B3AA;
+    --text:#14141A;
+    --text-muted:#3C3C46;
+    --text-faint:#5F5F6B;
+    --maya:#C2453C;
+    --jordan:#B4761A;
+    --sam:#6A4FB5;
+    --maya-on:#A93A32;
+    --jordan-on:#8A5A10;
+    --sam-on:#573FA0;
+    --shadow:0 1px 2px rgba(20,20,26,.06);
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
+  html{font-size:17px;}
   body{
     background:var(--bg);
     color:var(--text);
     font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.6;
+    line-height:1.65;
     -webkit-font-smoothing:antialiased;
+    transition:background .2s ease,color .2s ease;
   }
   h1,h2,h3{
     font-family:'Space Grotesk', sans-serif;
     margin:0 0 16px 0;
     line-height:1.15;
     font-weight:600;
+    color:var(--text);
   }
-  h1{font-size:2.5rem;}
-  h2{font-size:1.6rem;}
-  h3{font-size:1.15rem;color:var(--text);}
-  p{color:var(--text-muted);margin:0 0 16px 0;max-width:62ch;}
+  h1{font-size:2.6rem;}
+  h2{font-size:1.65rem;}
+  h3{font-size:1.2rem;color:var(--text);}
+  p{color:var(--text-muted);margin:0 0 16px 0;max-width:66ch;font-size:1rem;}
   a{color:var(--gold);}
-  .app{display:flex;min-height:100vh;}
+  .app{display:flex;flex-direction:column;min-height:100vh;}
 
-  /* ---------- Sidebar ---------- */
-  .sidebar{
-    width:280px;
-    flex-shrink:0;
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:20;
     background:var(--surface);
-    border-right:1px solid var(--border);
-    padding:28px 20px;
-    position:sticky;
-    top:0;
-    height:100vh;
-    overflow-y:auto;
+    border-bottom:1px solid var(--border);
+    box-shadow:var(--shadow);
   }
-  .brand{display:flex;align-items:center;gap:10px;margin-bottom:28px;}
-  .brand-mark{width:30px;height:30px;flex-shrink:0;}
-  .brand-text .name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.2px;}
-  .brand-text .subtitle{font-size:.75rem;color:var(--text-faint);}
+  .topbar-inner{
+    width:100%;max-width:1240px;margin:0 auto;
+    padding:14px 40px 0;
+  }
+  .topbar-row{
+    display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:11px;margin:0;}
+  .brand-mark{width:32px;height:32px;flex-shrink:0;}
+  .brand-text .name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:.2px;color:var(--text);}
+  .brand-text .subtitle{font-size:.8rem;color:var(--text-faint);}
 
-  .legend{display:flex;gap:14px;font-size:.72rem;color:var(--text-faint);margin-bottom:20px;flex-wrap:wrap;}
-  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .topbar-right{display:flex;align-items:center;gap:20px;margin-left:auto;}
+  .legend{display:flex;gap:16px;font-size:.78rem;color:var(--text-faint);flex-wrap:wrap;}
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
 
-  .nav{display:flex;flex-direction:column;gap:2px;}
+  .nav{
+    display:flex;flex-direction:row;gap:2px;
+    margin-top:12px;overflow-x:auto;scrollbar-width:thin;
+  }
   .nav-item{
-    display:flex;align-items:center;justify-content:space-between;gap:10px;
-    background:none;border:none;text-align:left;
+    display:inline-flex;align-items:center;gap:8px;
+    background:none;border:none;border-bottom:2px solid transparent;
+    white-space:nowrap;flex-shrink:0;
     color:var(--text-muted);
     font-family:'IBM Plex Sans',sans-serif;
-    font-size:.92rem;
+    font-size:.95rem;
     padding:10px 12px;
-    border-radius:8px;
+    margin-bottom:-1px;
+    border-radius:8px 8px 0 0;
     cursor:pointer;
-    transition:background .15s ease,color .15s ease;
+    transition:background .15s ease,color .15s ease,border-color .15s ease;
   }
   .nav-item:hover{background:var(--surface-2);color:var(--text);}
-  .nav-item.active{background:var(--surface-2);color:var(--text);}
-  .nav-item.active::before{content:"";width:3px;align-self:stretch;background:var(--gold);border-radius:2px;margin-right:-4px;}
+  .nav-item.active{color:var(--text);border-bottom-color:var(--gold);background:var(--surface-2);}
+  .nav-item:focus-visible{outline:2px solid var(--teal);outline-offset:-2px;}
 
-  .status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  /* ---------- Theme toggle ---------- */
+  .theme-toggle{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:5px 13px 5px 9px;
+    cursor:pointer;
+    color:var(--text-muted);
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size:.82rem;
+    transition:border-color .15s ease,color .15s ease;
+  }
+  .theme-toggle:hover{border-color:var(--gold-dim);color:var(--text);}
+  .theme-toggle:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+  .theme-toggle .track{
+    width:34px;height:19px;border-radius:999px;
+    background:var(--bg);border:1px solid var(--border);
+    position:relative;flex-shrink:0;
+  }
+  .theme-toggle .knob{
+    position:absolute;top:2px;left:2px;
+    width:13px;height:13px;border-radius:50%;
+    background:var(--gold);
+    transition:transform .18s ease;
+  }
+  [data-theme="light"] .theme-toggle .knob{transform:translateX(15px);}
+  .theme-toggle .label{white-space:nowrap;}
+
+  .status-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
   .status-dot.pending{background:var(--pending);}
   .status-dot.progress{background:var(--gold);animation:pulse 2.4s ease-in-out infinite;}
   .status-dot.complete{background:var(--teal);}
@@ -94,18 +164,24 @@
     50%{box-shadow:0 0 0 5px rgba(242,169,59,0);}
   }
 
-  .sidebar-footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--border);font-size:.72rem;color:var(--text-faint);}
+  .site-footer{
+    border-top:1px solid var(--border);
+    margin-top:auto;
+    padding:22px 40px;
+    font-size:.82rem;color:var(--text-faint);
+  }
+  .site-footer .inner{max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:6px 24px;}
 
   /* ---------- Content ---------- */
-  .content{flex:1;padding:60px 56px;max-width:900px;}
+  .content{flex:1;width:100%;max-width:1240px;margin:0 auto;padding:52px 40px 64px;}
   .phase-section{display:none;}
   .phase-section.active{display:block;animation:fadein .25s ease;}
   @keyframes fadein{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
 
-  .eyebrow{font-size:.85rem;color:var(--gold);margin-bottom:8px;}
+  .eyebrow{font-size:.92rem;color:var(--gold);margin-bottom:8px;}
   .status-pill{
     display:inline-flex;align-items:center;gap:6px;
-    font-size:.78rem;color:var(--text-muted);
+    font-size:.86rem;color:var(--text-muted);
     border:1px solid var(--border);border-radius:999px;
     padding:4px 12px;margin-bottom:20px;
   }
@@ -127,23 +203,22 @@
     border-radius:10px;
     padding:26px;
     color:var(--text-faint);
-    font-size:.92rem;
+    font-size:1rem;
   }
   .placeholder strong{color:var(--text-muted);display:block;margin-bottom:6px;font-family:'Space Grotesk',sans-serif;font-weight:600;}
 
   .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
   .team-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;}
   .team-card .avatar{width:44px;height:44px;border-radius:50%;background:var(--surface-2);border:1px solid var(--border);margin-bottom:12px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;color:var(--gold);font-weight:600;}
-  .team-card .role{font-size:.82rem;color:var(--text-faint);}
+  .team-card .role{font-size:.88rem;color:var(--text-faint);}
 
-  footer.page-footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-faint);}
 
 
 
   /* ---------- Phase 1 structured content ---------- */
-  .card p.lede{font-size:1.02rem;line-height:1.65;color:var(--text-muted);margin:0 0 18px;max-width:62ch;}
+  .card p.lede{font-size:1.08rem;line-height:1.65;color:var(--text-muted);margin:0 0 18px;max-width:64ch;}
   .card p.pullline{
-    font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:500;
+    font-family:'Space Grotesk',sans-serif;font-size:1.13rem;font-weight:500;
     line-height:1.45;color:var(--text);
     border-left:3px solid var(--gold);padding:2px 0 2px 16px;margin:20px 0 0;max-width:56ch;
   }
@@ -163,10 +238,10 @@
     flex-shrink:0;margin-top:1px;
   }
   .point h4{
-    font-family:'Space Grotesk',sans-serif;font-size:.97rem;font-weight:600;
+    font-family:'Space Grotesk',sans-serif;font-size:1.04rem;font-weight:600;
     color:var(--text);margin:0 0 3px;line-height:1.3;
   }
-  .point p{margin:0;font-size:.9rem;line-height:1.55;color:var(--text-muted);max-width:58ch;}
+  .point p{margin:0;font-size:.97rem;line-height:1.6;color:var(--text-muted);max-width:62ch;}
 
   /* target-user groups, colored to match the personas they became */
   .groups{display:flex;flex-direction:column;gap:12px;margin:0 0 18px;}
@@ -177,10 +252,10 @@
   }
   .ugroup .top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin-bottom:5px;}
   .ugroup h4{
-    font-family:'Space Grotesk',sans-serif;font-size:.97rem;font-weight:600;
+    font-family:'Space Grotesk',sans-serif;font-size:1.04rem;font-weight:600;
     color:var(--accent-text);margin:0;line-height:1.3;
   }
-  .ugroup p{margin:0;font-size:.9rem;line-height:1.55;color:var(--text-muted);max-width:58ch;}
+  .ugroup p{margin:0;font-size:.97rem;line-height:1.6;color:var(--text-muted);max-width:62ch;}
 
   /* approach: a real sequence, so it is numbered and connected */
   .steps{display:flex;flex-direction:column;margin:0;}
@@ -197,15 +272,15 @@
     display:flex;align-items:center;justify-content:center;
   }
   .step h4{
-    font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:600;
+    font-family:'Space Grotesk',sans-serif;font-size:1.02rem;font-weight:600;
     color:var(--text);margin:3px 0 3px;line-height:1.3;
   }
-  .step p{margin:0;font-size:.89rem;line-height:1.55;color:var(--text-muted);max-width:58ch;}
-  .step .ph{font-size:.72rem;color:var(--text-faint);letter-spacing:.04em;}
+  .step p{margin:0;font-size:.97rem;line-height:1.6;color:var(--text-muted);max-width:62ch;}
+  .step .ph{font-size:.78rem;color:var(--text-faint);letter-spacing:.04em;}
 
   .card p.closing{
     margin:16px 0 0;padding-top:14px;border-top:1px solid var(--border);
-    font-size:.87rem;line-height:1.55;color:var(--text-faint);max-width:62ch;
+    font-size:.94rem;line-height:1.6;color:var(--text-faint);max-width:66ch;
   }
 
   @media(max-width:820px){
@@ -222,8 +297,8 @@
   .subtab{
     background:none;border:none;border-bottom:2px solid transparent;
     color:var(--text-faint);
-    font-family:'IBM Plex Sans',sans-serif;font-size:.9rem;
-    padding:9px 14px;margin-bottom:-1px;cursor:pointer;
+    font-family:'IBM Plex Sans',sans-serif;font-size:.98rem;
+    padding:10px 15px;margin-bottom:-1px;cursor:pointer;
     transition:color .15s ease,border-color .15s ease;
   }
   .subtab:hover{color:var(--text-muted);}
@@ -238,8 +313,8 @@
     border-top:1px solid var(--border);border-bottom:1px solid var(--border);
   }
   .statline div{display:flex;flex-direction:column;}
-  .statline b{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums;}
-  .statline span{font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--text-faint);}
+  .statline b{font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums;}
+  .statline span{font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--text-faint);}
 
   .theme-list{display:flex;flex-direction:column;gap:10px;margin:0 0 20px 0;}
   .theme-row{
@@ -247,13 +322,13 @@
     background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px;
   }
   .theme-row .tid{
-    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.8rem;color:var(--gold);
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.86rem;color:var(--gold);
     background:var(--surface-2);border:1px solid var(--border);border-radius:5px;
     padding:3px 0;text-align:center;
   }
-  .theme-row h4{margin:0 0 5px 0;font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;line-height:1.3;color:var(--text);}
-  .theme-row p{margin:0;font-size:.88rem;line-height:1.55;color:var(--text-muted);max-width:none;}
-  .theme-row p.impl{margin-top:7px;padding-top:7px;border-top:1px solid var(--border);color:var(--text-faint);font-size:.83rem;}
+  .theme-row h4{margin:0 0 5px 0;font-family:'Space Grotesk',sans-serif;font-size:1.07rem;font-weight:600;line-height:1.3;color:var(--text);}
+  .theme-row p{margin:0;font-size:.95rem;line-height:1.6;color:var(--text-muted);max-width:none;}
+  .theme-row p.impl{margin-top:7px;padding-top:7px;border-top:1px solid var(--border);color:var(--text-faint);font-size:.9rem;}
   .theme-row p.impl b{color:var(--text-muted);font-weight:600;}
 
   .wallframe{
@@ -264,7 +339,7 @@
   .framebar{
     display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;
     padding:10px 14px;border-top:1px solid var(--border);background:var(--surface-2);
-    font-size:.8rem;color:var(--text-faint);
+    font-size:.86rem;color:var(--text-faint);
   }
   .framebar a{margin-left:auto;color:var(--gold);text-decoration:none;font-weight:500;white-space:nowrap;}
   .framebar a:hover{text-decoration:underline;}
@@ -273,20 +348,21 @@
   .doclist a,.doclist span.pending-doc{
     display:flex;align-items:center;gap:12px;
     background:var(--surface);border:1px solid var(--border);border-radius:8px;
-    padding:13px 16px;text-decoration:none;color:var(--text);font-size:.9rem;
+    padding:14px 17px;text-decoration:none;color:var(--text);font-size:.97rem;
   }
   .doclist a:hover{border-color:var(--gold-dim);background:var(--surface-2);}
   .doclist span.pending-doc{color:var(--text-faint);border-style:dashed;}
   .doclist .kind{
-    font-family:'Space Grotesk',sans-serif;font-size:.68rem;letter-spacing:.06em;
+    font-family:'Space Grotesk',sans-serif;font-size:.74rem;letter-spacing:.06em;
     color:var(--gold);background:var(--surface-2);border:1px solid var(--border);
     border-radius:4px;padding:2px 7px;flex-shrink:0;
   }
-  .doclist .note{margin-left:auto;font-size:.76rem;color:var(--text-faint);}
+  .doclist .note{margin-left:auto;font-size:.82rem;color:var(--text-faint);}
 
-  @media(min-width:1360px){ .wallframe{width:calc(100% + 190px);} }
-  @media(min-width:1660px){ .wallframe{width:calc(100% + 400px);} }
-  @media(min-width:1900px){ .wallframe{width:calc(100% + 620px);} }
+  /* the wall reads better wider than the text column, bleeding evenly both sides */
+  @media(min-width:1280px){ .wallframe{width:calc(100% + 120px);margin-left:-60px;} }
+  @media(min-width:1500px){ .wallframe{width:calc(100% + 240px);margin-left:-120px;} }
+
   @media(max-width:820px){
     .subtabs{overflow-x:auto;flex-wrap:nowrap;}
     .subtab{white-space:nowrap;}
@@ -295,21 +371,23 @@
     .theme-row .tid{justify-self:start;padding:3px 10px;}
   }
 
-  /* ---------- Mobile ---------- */
+  /* ---------- Narrow screens ---------- */
+  @media(max-width:1080px){
+    .topbar-inner{padding:12px 24px 0;}
+    .content{padding:40px 24px 56px;}
+    .site-footer{padding:20px 24px;}
+    .legend{display:none;}
+  }
   @media(max-width:820px){
-    .app{flex-direction:column;}
-    .sidebar{
-      width:100%;height:auto;position:sticky;top:0;z-index:10;
-      padding:16px;
-      display:flex;flex-direction:column;
-    }
-    .nav{flex-direction:row;overflow-x:auto;padding-bottom:4px;}
-    .nav-item{white-space:nowrap;flex-shrink:0;}
-    .nav-item.active::before{display:none;}
-    .legend, .sidebar-footer{display:none;}
-    .content{padding:32px 22px;}
-    h1{font-size:1.9rem;}
+    .brand-text .subtitle{display:none;}
+    .theme-toggle .label{display:none;}
+    .theme-toggle{padding:5px 9px;}
+    .content{padding:30px 18px 48px;}
+    .site-footer{padding:18px;}
+    h1{font-size:2rem;}
+    h2{font-size:1.4rem;}
     .grid-2{grid-template-columns:1fr;}
+    .wallframe{width:100%;margin-left:0;}
   }
 </style>
 </head>
@@ -317,42 +395,46 @@
 
 <div class="app">
 
-  <aside class="sidebar">
-    <div class="brand">
-      <svg class="brand-mark" viewBox="0 0 40 40" fill="none">
-        <polygon points="20,2 35,11 35,29 20,38 5,29 5,11" fill="#1F1F22" stroke="#F2A93B" stroke-width="1.5"/>
-        <circle cx="20" cy="20" r="6" fill="#F2A93B"/>
-      </svg>
-      <div class="brand-text">
-        <div class="name">Busy Bee</div>
-        <div class="subtitle">HCI Digital Portfolio</div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-row">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 40 40" fill="none">
+            <polygon points="20,2 35,11 35,29 20,38 5,29 5,11" fill="var(--surface-2)" stroke="var(--gold)" stroke-width="1.5"/>
+            <circle cx="20" cy="20" r="6" fill="var(--gold)"/>
+          </svg>
+          <div class="brand-text">
+            <div class="name">Busy Bee</div>
+            <div class="subtitle">HCI Digital Portfolio</div>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="legend">
+            <span><span class="status-dot pending"></span>Not started</span>
+            <span><span class="status-dot progress"></span>In progress</span>
+            <span><span class="status-dot complete"></span>Complete</span>
+          </div>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" title="Switch between dark and light mode">
+            <span class="track" aria-hidden="true"><span class="knob"></span></span>
+            <span class="label" id="theme-label">Dark mode</span>
+          </button>
+        </div>
       </div>
-    </div>
 
-    <div class="legend">
-      <span><span class="status-dot pending"></span>Not started</span>
-      <span><span class="status-dot progress"></span>In progress</span>
-      <span><span class="status-dot complete"></span>Complete</span>
+      <nav class="nav">
+        <button class="nav-item active" data-target="overview">Overview</button>
+        <button class="nav-item" data-target="phase-1">1 &middot; Description<span class="status-dot complete"></span></button>
+        <button class="nav-item" data-target="phase-2">2 &middot; Research<span class="status-dot complete"></span></button>
+        <button class="nav-item" data-target="phase-3">3 &middot; Requirements<span class="status-dot pending"></span></button>
+        <button class="nav-item" data-target="phase-4">4 &middot; Low-Fi<span class="status-dot pending"></span></button>
+        <button class="nav-item" data-target="phase-5">5 &middot; High-Fi<span class="status-dot pending"></span></button>
+        <button class="nav-item" data-target="phase-6">6 &middot; Evaluation<span class="status-dot pending"></span></button>
+        <button class="nav-item" data-target="phase-7">7 &middot; Reflection<span class="status-dot pending"></span></button>
+        <button class="nav-item" data-target="team">Team</button>
+      </nav>
     </div>
-
-    <nav class="nav">
-      <button class="nav-item active" data-target="overview">Overview</button>
-      <button class="nav-item" data-target="phase-1">Phase 1: Project Description<span class="status-dot progress"></span></button>
-      <button class="nav-item" data-target="phase-2">Phase 2: User Research<span class="status-dot complete"></span></button>
-      <button class="nav-item" data-target="phase-3">Phase 3: Task Analysis &amp; Requirements<span class="status-dot pending"></span></button>
-      <button class="nav-item" data-target="phase-4">Phase 4: Low-Fidelity Prototype<span class="status-dot pending"></span></button>
-      <button class="nav-item" data-target="phase-5">Phase 5: High-Fidelity Prototype<span class="status-dot pending"></span></button>
-      <button class="nav-item" data-target="phase-6">Phase 6: Usability Evaluation<span class="status-dot pending"></span></button>
-      <button class="nav-item" data-target="phase-7">Phase 7: Final Reflection<span class="status-dot pending"></span></button>
-      <button class="nav-item" data-target="team">Team</button>
-    </nav>
-
-    <div class="sidebar-footer">
-      University of Michigan–Flint<br>
-      Human-Computer Interaction<br>
-      Last updated: <span id="update-date"></span>
-    </div>
-  </aside>
+  </header>
 
   <main class="content">
 
@@ -369,7 +451,7 @@
 
       <div class="card">
         <h3>How this portfolio works</h3>
-        <p>Each phase in the sidebar lights up as we complete it: dim for not started, gold for in progress, teal for done. This page is being published now and will be filled in and refined through the end of the semester, so check back as the phases progress.</p>
+        <p>Each phase in the top bar lights up as we complete it: dim for not started, gold for in progress, teal for done. This page is being published now and will be filled in and refined through the end of the semester, so check back as the phases progress.</p>
       </div>
     </section>
 
@@ -377,7 +459,7 @@
     <section id="phase-1" class="phase-section">
       <div class="eyebrow">Phase 1</div>
       <h1>Project Description</h1>
-      <div class="status-pill"><span class="status-dot progress"></span>In progress</div>
+      <div class="status-pill"><span class="status-dot complete"></span>Complete</div>
       <p>What Busy Bee is, who it is for, and how we intend to build it.</p>
 
       <div class="card">
@@ -703,15 +785,41 @@
         </div>
       </div>
 
-      <footer class="page-footer">
-        Busy Bee · HCI Digital Portfolio · University of Michigan–Flint
-      </footer>
     </section>
 
   </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <span>Busy Bee · HCI Digital Portfolio</span>
+      <span>University of Michigan–Flint · Human-Computer Interaction</span>
+      <span>Last updated: <span id="update-date"></span></span>
+    </div>
+  </footer>
 </div>
 
 <script>
+  // Theme: stored choice wins, otherwise the site's own dark default
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeLabel = document.getElementById('theme-label');
+
+  function applyTheme(mode){
+    const light = mode === 'light';
+    document.documentElement.setAttribute('data-theme', light ? 'light' : 'dark');
+    themeToggle.setAttribute('aria-pressed', String(light));
+    themeLabel.textContent = light ? 'Light mode' : 'Dark mode';
+  }
+
+  let stored = null;
+  try { stored = localStorage.getItem('bb-theme'); } catch(e) {}
+  applyTheme(stored === 'light' ? 'light' : 'dark');
+
+  themeToggle.addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    applyTheme(next);
+    try { localStorage.setItem('bb-theme', next); } catch(e) {}
+  });
+
   const navItems = document.querySelectorAll('.nav-item');
   const sections = document.querySelectorAll('.phase-section');
 
