@@ -1,5 +1,5 @@
 /* BusyBee: Phase 2 Contextual Inquiry
-   Source: BusyBee_Contextual_Inquiry_Master.pdf (7 interviews, 10 questions each)
+   Source: BusyBee_Contextual_Inquiry.pdf (7 interviews, 10 questions each)
    src: "v" = verbatim first-person transcript | "r" = interviewer's recorded summary */
 
 const PARTICIPANTS = {
