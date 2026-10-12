@@ -372,6 +372,134 @@
     .theme-row .tid{justify-self:start;padding:3px 10px;}
   }
 
+  /* ---------- Phase 3 ---------- */
+  :root{--v-yes:#4FB3A9;--v-partial:#F2A93B;--v-no:#F0605A;}
+  [data-theme="light"]{--v-yes:#17706A;--v-partial:#B07C22;--v-no:#C0392B;}
+  .phase-section h2{margin-top:34px;}
+  .subpanel > h2:first-child{margin-top:4px;}
+  h3.mini-h{font-size:1.1rem;margin:28px 0 12px;}
+  p.small{font-size:.95rem;color:var(--text-faint);margin-bottom:14px;}
+
+  /* sketches */
+  .sk-person{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 22px;margin-bottom:18px;}
+  .sk-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:14px;}
+  .sk-head h3{margin:0;}
+  .avatar-sm{width:32px;height:32px;border-radius:50%;background:var(--surface-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;color:var(--gold);font-weight:600;font-size:.9rem;}
+  .sk-focus{font-size:.86rem;color:var(--text-faint);margin-left:auto;}
+  .sk-sheets{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start;}
+  .sk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .sk-fig{margin:0;}
+  .sk-fig img,.bigfig img{display:block;width:100%;height:auto;border-radius:6px;border:1px solid var(--border);background:var(--surface-2);cursor:zoom-in;transition:transform .15s ease,border-color .15s ease;}
+  .sk-fig img:hover,.bigfig img:hover{border-color:var(--gold-dim);}
+  .sk-fig figcaption{font-size:.84rem;color:var(--text-faint);margin-top:6px;}
+  .sk-list{columns:2;column-gap:28px;margin:14px 0 0;padding-left:22px;font-size:.95rem;color:var(--text-muted);}
+  .sk-list li{margin-bottom:3px;break-inside:avoid;}
+  .sk-list li::marker{color:var(--gold);font-family:'Space Grotesk',sans-serif;}
+
+  .bigfig{margin:22px 0;}
+  .bigfig figcaption{font-size:.9rem;color:var(--text-faint);margin-top:8px;}
+
+  /* feature lineage */
+  .lineage{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--surface);}
+  .lin-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:12px;padding:11px 18px;border-top:1px solid var(--border);font-size:1rem;}
+  .lin-row:first-child{border-top:0;}
+  .lin-feat{color:var(--text);font-weight:500;}
+  .lin-src{color:var(--text-muted);}
+  .src{display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;padding:1px 7px;margin-right:4px;border:1px solid var(--border);background:var(--surface-2);}
+  .src.o{color:var(--gold);} .src.n{color:var(--teal);} .src.e{color:var(--sam-on);} .src.new{color:var(--text);}
+
+  /* prototype inventory */
+  .inv{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .inv-group{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px;}
+  .inv-group h4{font-family:'Space Grotesk',sans-serif;font-size:1rem;margin:0 0 8px;color:var(--gold);}
+  .inv-group ul{margin:0;padding-left:18px;color:var(--text-muted);font-size:.97rem;}
+
+  /* walkthrough summary */
+  .wt-summary .card{margin-bottom:0;}
+  .wt-summary{margin-bottom:26px;align-items:start;}
+  .cbars{display:flex;flex-direction:column;gap:14px;margin-top:6px;}
+  .cbar-top{display:flex;justify-content:space-between;gap:10px;font-size:.92rem;margin-bottom:5px;}
+  .cbar-top b{font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--text);}
+  .cbar-top span{color:var(--text-faint);font-variant-numeric:tabular-nums;}
+  .cbar-track{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--surface-2);gap:2px;}
+  .seg{display:block;height:100%;}
+  .seg.v-yes,.sq.v-yes{background:var(--v-yes);}
+  .seg.v-partial,.sq.v-partial{background:var(--v-partial);}
+  .seg.v-no,.sq.v-no{background:var(--v-no);}
+  .vlegend{display:flex;gap:16px;margin-top:16px;font-size:.84rem;color:var(--text-faint);}
+  .vlegend span{display:inline-flex;align-items:center;gap:6px;}
+  .sq{display:inline-block;width:11px;height:11px;border-radius:2px;}
+
+  .tindex{display:flex;flex-direction:column;}
+  .tindex-row{display:grid;grid-template-columns:34px 1fr auto;grid-template-areas:"num name strip" "num meta tag";gap:2px 12px;align-items:center;padding:10px 6px;border-top:1px solid var(--border);text-decoration:none;color:inherit;border-radius:6px;}
+  .tindex-row:first-child{border-top:0;}
+  .tindex-row:hover{background:var(--surface-2);}
+  .tindex-row .tnum{grid-area:num;}
+  .tindex-row .tname{grid-area:name;color:var(--text);font-weight:500;font-size:.98rem;line-height:1.3;}
+  .tindex-row .tmeta{grid-area:meta;font-size:.8rem;color:var(--text-faint);}
+  .tindex-row .ptag{grid-area:tag;justify-self:end;}
+  .tindex-row .strip{grid-area:strip;justify-self:end;display:flex;gap:3px;}
+  .tnum{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.8rem;color:var(--gold);background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:3px 0;text-align:center;width:34px;}
+  .tnum.big{font-size:.95rem;width:44px;padding:6px 0;flex-shrink:0;}
+  .ptag{font-size:.76rem;font-weight:500;color:var(--pc);border:1px solid currentColor;border-radius:999px;padding:1px 9px;white-space:nowrap;}
+
+  /* walkthrough cards */
+  .wt-card{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--pc);border-radius:10px;padding:22px 24px;margin-bottom:20px;scroll-margin-top:150px;}
+  .wt-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:10px;}
+  .wt-head h3{margin:0 0 3px;}
+  .wt-sub{font-size:.9rem;color:var(--text-faint);}
+  .wt-sub b{color:var(--pc-on);font-weight:600;}
+  .wt-scn{font-size:1rem;margin:0 0 12px;color:var(--text-muted);max-width:none;}
+  .pathline{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0 0 16px;counter-reset:pl;}
+  .pathline li{counter-increment:pl;font-size:.84rem;color:var(--text-muted);background:var(--surface-2);border:1px solid var(--border);border-radius:999px;padding:3px 11px 3px 6px;display:inline-flex;align-items:center;gap:6px;}
+  .pathline li::before{content:counter(pl);font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;color:var(--bg);background:var(--pc-on);border-radius:50%;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;}
+  .wt-tablewrap{overflow-x:auto;}
+  .wt-table{width:100%;border-collapse:collapse;font-size:.9rem;line-height:1.5;min-width:760px;}
+  .wt-table th,.wt-table td{text-align:left;vertical-align:top;padding:10px 10px;border-top:1px solid var(--border);}
+  .wt-table thead th{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-faint);border-top:0;padding-top:4px;}
+  .wt-table tbody th{font-weight:500;color:var(--text);width:19%;}
+  .wt-table td{color:var(--text-muted);width:15%;}
+  .wt-table td.fixcell{width:21%;color:var(--text);}
+  .nofix{color:var(--text-faint);}
+  .vchip{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.04em;border-radius:4px;padding:1px 7px;margin:0 6px 3px 0;border:1px solid currentColor;}
+  .vchip.v-yes{color:var(--v-yes);}
+  .vchip.v-partial{color:var(--v-partial);background:color-mix(in srgb,var(--v-partial) 12%,transparent);}
+  .vchip.v-no{color:var(--v-no);background:color-mix(in srgb,var(--v-no) 14%,transparent);}
+  .vtext{display:block;}
+
+  .theme-row.sev-high .tid{color:var(--v-no);}
+  .checklist{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
+  .checklist li{position:relative;padding:12px 16px 12px 44px;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text-muted);font-size:1.02rem;}
+  .checklist li::before{content:"";position:absolute;left:16px;top:16px;width:14px;height:14px;border:1.5px solid var(--gold-dim);border-radius:3px;}
+
+  /* lightbox */
+  .lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:100%;max-height:calc(100vh - 80px);border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.6);}
+  .lightbox .lb-cap{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#D4D3D9;font-size:.9rem;padding:0 20px;}
+  .lightbox .lb-close{position:absolute;top:14px;right:16px;background:#1F1F22;color:#fff;border:1px solid #2C2C31;border-radius:999px;width:38px;height:38px;font-size:1.2rem;cursor:pointer;}
+
+  @media(max-width:1080px){
+    .sk-grid{grid-template-columns:repeat(2,1fr);}
+    .inv{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:820px){
+    .sk-sheets{grid-template-columns:1fr;}
+    .sk-list{columns:1;}
+    .sk-focus{margin-left:0;width:100%;}
+    .inv{grid-template-columns:1fr;}
+    .lin-row{grid-template-columns:1fr;gap:2px;}
+    .wt-card{padding:18px 16px;}
+    .wt-table{min-width:0;}
+    .wt-table thead{display:none;}
+    .wt-table tr{display:block;border-top:1px solid var(--border);padding:10px 0;}
+    .wt-table tbody th,.wt-table td,.wt-table td.fixcell{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px;width:auto;border-top:0;padding:4px 0;}
+    .wt-table tbody th{display:block;font-size:.98rem;padding-bottom:6px;}
+    .wt-table td::before{content:attr(data-label);font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);padding-top:2px;}
+    .tindex-row{grid-template-columns:34px 1fr;grid-template-areas:"num name" "num meta" "num tag" "num strip";}
+    .tindex-row .ptag,.tindex-row .strip{justify-self:start;}
+  }
+
   /* ---------- Narrow screens ---------- */
   @media(max-width:1080px){
     .topbar-inner{padding:12px 24px 0;}
@@ -427,11 +555,10 @@
         <button class="nav-item active" data-target="overview">Overview</button>
         <button class="nav-item" data-target="phase-1">1 &middot; Description<span class="status-dot complete"></span></button>
         <button class="nav-item" data-target="phase-2">2 &middot; Research<span class="status-dot complete"></span></button>
-        <button class="nav-item" data-target="phase-3">3 &middot; Requirements<span class="status-dot pending"></span></button>
-        <button class="nav-item" data-target="phase-4">4 &middot; Low-Fi<span class="status-dot pending"></span></button>
-        <button class="nav-item" data-target="phase-5">5 &middot; High-Fi<span class="status-dot pending"></span></button>
-        <button class="nav-item" data-target="phase-6">6 &middot; Evaluation<span class="status-dot pending"></span></button>
-        <button class="nav-item" data-target="phase-7">7 &middot; Reflection<span class="status-dot pending"></span></button>
+        <button class="nav-item" data-target="phase-3">3 &middot; Low-Fi<span class="status-dot complete"></span></button>
+        <button class="nav-item" data-target="phase-4">4 &middot; High-Fi<span class="status-dot pending"></span></button>
+        <button class="nav-item" data-target="phase-5">5 &middot; Evaluation<span class="status-dot pending"></span></button>
+        <button class="nav-item" data-target="phase-6">6 &middot; Reflection<span class="status-dot pending"></span></button>
         <button class="nav-item" data-target="team">Team</button>
       </nav>
     </div>
@@ -528,7 +655,7 @@
 
       <div class="card">
         <h3>Approach</h3>
-        <p class="lede">We are following the standard HCI design process across seven phases, documented on this site as we go.</p>
+        <p class="lede">We are following the standard HCI design process across six phases, documented on this site as we go.</p>
         <div class="steps">
           <div class="step">
             <span class="num">1</span>
@@ -536,19 +663,19 @@
           </div>
           <div class="step">
             <span class="num">2</span>
-            <div><h4>Ideation <span class="ph">Phase 3</span></h4><p>Task analysis and requirements drawn directly from those findings.</p></div>
+            <div><h4>Ideation and low-fi prototyping <span class="ph">Phase 3</span></h4><p>Divergent sketching, a converged paper prototype, and a cognitive walkthrough using the Phase 2 personas.</p></div>
           </div>
           <div class="step">
             <span class="num">3</span>
-            <div><h4>Prototyping <span class="ph">Phases 4 and 5</span></h4><p>Low-fidelity wireframes tested cheaply and revised, then a high-fidelity interactive build in React Native and Expo.</p></div>
+            <div><h4>High-fidelity prototype <span class="ph">Phase 4</span></h4><p>An interactive build in React Native and Expo that fixes what the walkthrough found.</p></div>
           </div>
           <div class="step">
             <span class="num">4</span>
-            <div><h4>Evaluation <span class="ph">Phase 6</span></h4><p>Usability testing against the tasks identified in Phase 3, with findings fed back into the design.</p></div>
+            <div><h4>Evaluation <span class="ph">Phase 5</span></h4><p>Usability testing against the tasks identified in Phase 3, with findings fed back into the design.</p></div>
           </div>
           <div class="step">
             <span class="num">5</span>
-            <div><h4>Reflection <span class="ph">Phase 7</span></h4><p>What the process changed about the product, and what we would do differently.</p></div>
+            <div><h4>Reflection <span class="ph">Phase 6</span></h4><p>What the process changed about the product, and what we would do differently.</p></div>
           </div>
         </div>
         <p class="closing">Each phase produces an artifact that lives on this portfolio rather than in a folder, so the reasoning behind the final design stays visible and traceable back to the people we interviewed.</p>
@@ -724,42 +851,385 @@
     <!-- PHASE 3 -->
     <section id="phase-3" class="phase-section">
       <div class="eyebrow">Phase 3</div>
-      <h1>Task Analysis &amp; Requirements</h1>
-      <div class="status-pill"><span class="status-dot pending"></span>Not started</div>
-      <p>Representative user tasks and a prioritized list of system requirements derived from the research phase.</p>
-      <div class="placeholder">Coming soon.</div>
+      <h1>Low-Fi Prototyping &amp; Cognitive Walkthrough</h1>
+      <div class="status-pill"><span class="status-dot complete"></span>Complete</div>
+      <p>Twenty-four divergent sketches, one converged design, a complete paper prototype, and an internal cognitive walkthrough of six tasks using our Phase 2 personas. Everything produced for this phase lives on this page.</p>
+
+      <div class="statline">
+        <div><b>24</b><span>Sketches</span></div>
+        <div><b>11</b><span>Screens &amp; pop-ups</span></div>
+        <div><b>6</b><span>Tasks</span></div>
+        <div><b>26</b><span>Atomic actions</span></div>
+        <div><b>85/104</b><span>Checks passed</span></div>
+        <div><b>6</b><span>Issues to fix</span></div>
+      </div>
+
+      <div class="subtabs" role="tablist">
+        <button class="subtab active" data-panel="p3-sketches">Crazy Eights</button>
+        <button class="subtab" data-panel="p3-converge">Final Design</button>
+        <button class="subtab" data-panel="p3-prototype">Paper Prototype</button>
+        <button class="subtab" data-panel="p3-walkthrough">Cognitive Walkthrough</button>
+        <button class="subtab" data-panel="p3-findings">Findings</button>
+        <button class="subtab" data-panel="p3-docs">Documents</button>
+      </div>
+
+      <!-- STEP 1: CRAZY EIGHTS -->
+      <div class="subpanel active" data-panel="p3-sketches">
+        <h2>Step 1 &middot; Divergent design alternatives</h2>
+        <p>Each of us sketched eight distinct layout concepts so the ideas would spread out before we narrowed them down. Click any sketch to see it full size.</p>
+
+        <div class="sk-person">
+          <div class="sk-head"><span class="avatar-sm">N</span><h3>Nolan Jarvinen</h3><span class="sk-focus">List and profile-led layouts, user trust</span></div>
+          <div class="sk-sheets">
+            <figure class="sk-fig"><img class="zoomable" src="phase3/img/nolan-1-6.jpg" alt="Nolan's Crazy Eights sketches 1 to 6" loading="lazy"><figcaption>Designs 1&ndash;6</figcaption></figure>
+            <figure class="sk-fig"><img class="zoomable" src="phase3/img/nolan-7-8.jpg" alt="Nolan's Crazy Eights sketches 7 and 8" loading="lazy"><figcaption>Designs 7&ndash;8</figcaption></figure>
+          </div>
+          <ol class="sk-list">
+            <li>Map with options menu and busyness popup</li>
+            <li>Map with map, help and profile tabs</li>
+            <li>Busyness near me list</li>
+            <li>Profile with trust score and achievements</li>
+            <li>User profile with trustability and ratings</li>
+            <li>Businesses nearby with reviews</li>
+            <li>Frequented places with directions and report</li>
+            <li>Search map with name and est. wait popup</li>
+          </ol>
+        </div>
+
+        <div class="sk-person">
+          <div class="sk-head"><span class="avatar-sm">O</span><h3>Omar Naguib</h3><span class="sk-focus">Reporting flow, saved places, map views</span></div>
+          <div class="sk-sheets">
+            <figure class="sk-fig"><img class="zoomable" src="phase3/img/omar-1-4.jpg" alt="Omar's Crazy Eights sketches 1 to 4" loading="lazy"><figcaption>Designs 1&ndash;4</figcaption></figure>
+            <figure class="sk-fig"><img class="zoomable" src="phase3/img/omar-5-8.jpg" alt="Omar's Crazy Eights sketches 5 to 8" loading="lazy"><figcaption>Designs 5&ndash;8</figcaption></figure>
+          </div>
+          <ol class="sk-list">
+            <li>Report screen</li>
+            <li>Business scale</li>
+            <li>Map</li>
+            <li>Saved locations</li>
+            <li>Profile</li>
+            <li>Heat map</li>
+            <li>Compare</li>
+            <li>Notification</li>
+          </ol>
+        </div>
+
+        <div class="sk-person">
+          <div class="sk-head"><span class="avatar-sm">E</span><h3>Evan Wilkin</h3><span class="sk-focus">Wait times, predictions, community input</span></div>
+          <div class="sk-grid">
+            <figure class="sk-fig"><img class="zoomable" src="phase3/img/evan-1.jpg" alt="Evan design 1: Community picks" loading="lazy"><figcaption>1 &middot; Community picks</figcaption></figure>
+            <figure class="sk-fig"><img class="zoomable" src="phase3/img/evan-2.jpg" alt="Evan design 2: Predicted busyness" loading="lazy"><figcaption>2 &middot; Predicted busyness</figcaption></figure>
+            <figure class="sk-fig"><img class="zoomable" src="phase3/img/evan-3.jpg" alt="Evan design 3: Comments" loading="lazy"><figcaption>3 &middot; Comments</figcaption></figure>
+            <figure class="sk-fig"><img class="zoomable" src="phase3/img/evan-4.jpg" alt="Evan design 4: Sharing" loading="lazy"><figcaption>4 &middot; Sharing</figcaption></figure>
+            <figure class="sk-fig"><img class="zoomable" src="phase3/img/evan-5.jpg" alt="Evan design 5: Proximity" loading="lazy"><figcaption>5 &middot; Proximity</figcaption></figure>
+            <figure class="sk-fig"><img class="zoomable" src="phase3/img/evan-6.jpg" alt="Evan design 6: Favorites" loading="lazy"><figcaption>6 &middot; Favorites</figcaption></figure>
+            <figure class="sk-fig"><img class="zoomable" src="phase3/img/evan-7.jpg" alt="Evan design 7: Map view with location wait" loading="lazy"><figcaption>7 &middot; Map view with wait</figcaption></figure>
+            <figure class="sk-fig"><img class="zoomable" src="phase3/img/evan-8.jpg" alt="Evan design 8: Wait list" loading="lazy"><figcaption>8 &middot; Wait</figcaption></figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: CONVERGENCE -->
+      <div class="subpanel" data-panel="p3-converge">
+        <h2>Step 2 &middot; Convergence and final design</h2>
+        <div class="card">
+          <h3>Design rationale</h3>
+          <p class="lede">We made the map the main screen because it is the fastest way for users to find nearby businesses, then pulled the strongest pieces from all three sets of sketches around it.</p>
+          <p>The final design adds a business details page where users can see ratings, reviews, estimated wait times and predicted busyness throughout the day. The different profile ideas were combined into one screen with achievements, activity streaks and a user trust score. Although it was not in any original sketch, we added a sign-in screen with a guest option, because accounts are useful for saving favorites, leaving reviews and tracking activity. Navigation stays simple: the map plus a four-tab bottom bar.</p>
+        </div>
+
+        <h3 class="mini-h">Where each feature came from</h3>
+        <div class="lineage">
+          <div class="lin-row"><span class="lin-feat">Map as the home screen</span><span class="lin-src"><span class="src o">Omar</span> Map</span></div>
+          <div class="lin-row"><span class="lin-feat">Report busyness pop-up</span><span class="lin-src"><span class="src o">Omar</span> Report screen</span></div>
+          <div class="lin-row"><span class="lin-feat">Favorites tab</span><span class="lin-src"><span class="src o">Omar</span> Saved locations &middot; <span class="src e">Evan</span> Favorites</span></div>
+          <div class="lin-row"><span class="lin-feat">Discover list of nearby places</span><span class="lin-src"><span class="src n">Nolan</span> Busyness near me, Businesses nearby</span></div>
+          <div class="lin-row"><span class="lin-feat">Profile: streak, badges, trust score</span><span class="lin-src"><span class="src n">Nolan</span> Profile sketches &middot; <span class="src o">Omar</span> Profile</span></div>
+          <div class="lin-row"><span class="lin-feat">Projected busyness chart</span><span class="lin-src"><span class="src e">Evan</span> Predicted busyness</span></div>
+          <div class="lin-row"><span class="lin-feat">Ratings and reviews</span><span class="lin-src"><span class="src e">Evan</span> Comments</span></div>
+          <div class="lin-row"><span class="lin-feat">Estimated wait time on every listing</span><span class="lin-src"><span class="src e">Evan</span> Wait</span></div>
+          <div class="lin-row"><span class="lin-feat">Sign in with guest option</span><span class="lin-src"><span class="src new">New</span> Added during convergence</span></div>
+        </div>
+
+        <figure class="bigfig">
+          <img class="zoomable" src="phase3/img/final-flow-map.jpg" alt="Final design flow map with arrows showing navigation paths between screens" loading="lazy">
+          <figcaption>Figure 1. Final design flow map. Arrows show navigation paths between screens and pop-ups.</figcaption>
+        </figure>
+
+        <div class="card">
+          <h3>Parked for later</h3>
+          <p>Several sketches were not carried into this prototype. Two of them line up directly with Phase 2 findings, so they are strong candidates for the high-fidelity version.</p>
+          <div class="points">
+            <div class="point"><span class="marker">O8</span><div><h4>Notification</h4><p>Phase 2 theme T7 found reporting has to be one tap from a notification while people are already moving.</p></div></div>
+            <div class="point"><span class="marker">E4</span><div><h4>Sharing</h4><p>Theme T8 found people already warn each other in group chats, so a share-to-chat path lowers the cost of reporting.</p></div></div>
+            <div class="point"><span class="marker">O6</span><div><h4>Heat map and compare</h4><p>Omar's heat map and side-by-side compare views were not included in this version, but would give a faster read across several places at once.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: PAPER PROTOTYPE -->
+      <div class="subpanel" data-panel="p3-prototype">
+        <h2>Step 3 &middot; Complete paper prototype</h2>
+        <p>We took the flow map and made a cover-up that removes the arrows and other navigation hints. Each of us used this version for the walkthroughs, so the buttons and labels had to explain themselves without arrows guiding the way.</p>
+        <figure class="bigfig">
+          <img class="zoomable" src="phase3/img/paper-prototype.jpg" alt="Paper prototype showing every screen and pop-up without navigation arrows" loading="lazy">
+          <figcaption>Figure 2. Paper prototype: screens and pop-ups without navigation arrows. Green and blue cards are pop-ups that sit on top of a screen.</figcaption>
+        </figure>
+
+        <h3 class="mini-h">Inventory</h3>
+        <div class="inv">
+          <div class="inv-group"><h4>Screens</h4><ul><li>Sign in</li><li>Home / map</li><li>More info (business details)</li><li>Favorites</li><li>Discover</li><li>User account</li></ul></div>
+          <div class="inv-group"><h4>Pop-ups and overlays</h4><ul><li>Search bar with suggestions and filter</li><li>Info pop-up (when a location is tapped)</li><li>Report busyness pop-up</li><li>Leave a review pop-up</li><li>Report user trust pop-up</li></ul></div>
+          <div class="inv-group"><h4>Bottom navigation</h4><ul><li>Home</li><li>Favorites</li><li>Discover</li><li>Account</li></ul></div>
+        </div>
+      </div>
+
+      <!-- STEP 4: WALKTHROUGH -->
+      <div class="subpanel" data-panel="p3-walkthrough">
+        <h2>Step 4 &middot; Internal cognitive walkthrough</h2>
+        <p>The group wrote six tasks. Each member broke two into atomic actions, then walked through two tasks written by someone else as an assigned persona. At every action we asked four questions: will the user try to do this (<b>intent</b>), will they see the control (<b>visibility</b>), will they connect it to their goal (<b>association</b>), and will they know it worked (<b>feedback</b>).</p>
+
+        <div class="grid-2 wt-summary">
+          <div class="card">
+            <h3>Results by question</h3>
+            <div class="cbars">
+<div class="cbar"><div class="cbar-top"><b>Intent</b><span>25 yes &middot; 0 partial &middot; 1 no</span></div><div class="cbar-track"><i class="seg v-yes" style="width:96.15%" title="25 yes"></i><i class="seg v-no" style="width:3.85%" title="1 no"></i></div></div>
+<div class="cbar"><div class="cbar-top"><b>Visibility</b><span>21 yes &middot; 5 partial &middot; 0 no</span></div><div class="cbar-track"><i class="seg v-yes" style="width:80.77%" title="21 yes"></i><i class="seg v-partial" style="width:19.23%" title="5 partial"></i></div></div>
+<div class="cbar"><div class="cbar-top"><b>Association</b><span>21 yes &middot; 4 partial &middot; 1 no</span></div><div class="cbar-track"><i class="seg v-yes" style="width:80.77%" title="21 yes"></i><i class="seg v-partial" style="width:15.38%" title="4 partial"></i><i class="seg v-no" style="width:3.85%" title="1 no"></i></div></div>
+<div class="cbar"><div class="cbar-top"><b>Feedback</b><span>18 yes &middot; 6 partial &middot; 2 no</span></div><div class="cbar-track"><i class="seg v-yes" style="width:69.23%" title="18 yes"></i><i class="seg v-partial" style="width:23.08%" title="6 partial"></i><i class="seg v-no" style="width:7.69%" title="2 no"></i></div></div>
+            </div>
+            <div class="vlegend"><span><i class="sq v-yes"></i>Yes</span><span><i class="sq v-partial"></i>Partial</span><span><i class="sq v-no"></i>No</span></div>
+          </div>
+          <div class="card">
+            <h3>Tasks and evaluators</h3>
+            <p class="small">Each square is one atomic action, colored by its weakest answer. Select a task to jump to its report.</p>
+            <div class="tindex">
+<a class="tindex-row" href="#wt-task-1" data-jump="wt-task-1"><span class="tnum">T1</span><span class="tname">Report a Business&#x27;s Busyness</span><span class="tmeta">Written by Omar &middot; walked by Nolan</span><span class="ptag" style="--pc:var(--jordan-on)">Jordan Ellis</span><span class="strip"><i class="sq v-yes" title="Select a business on the map"></i><i class="sq v-yes" title="Select the Report button on the business popup"></i><i class="sq v-partial" title="Move the busyness slider"></i><i class="sq v-partial" title="Choose an estimated wait time"></i><i class="sq v-no" title="Tap Submit"></i></span></a>
+<a class="tindex-row" href="#wt-task-2" data-jump="wt-task-2"><span class="tnum">T2</span><span class="tname">Add a Business to Favorites</span><span class="tmeta">Written by Evan &middot; walked by Nolan</span><span class="ptag" style="--pc:var(--jordan-on)">Jordan Ellis</span><span class="strip"><i class="sq v-yes" title="Select a business on the map"></i><i class="sq v-yes" title="Tap the heart on the business popup to save the business"></i><i class="sq v-partial" title="Open Favorites to check the saved place"></i></span></a>
+<a class="tindex-row" href="#wt-task-3" data-jump="wt-task-3"><span class="tnum">T3</span><span class="tname">Check Predicted Busyness</span><span class="tmeta">Written by Evan &middot; walked by Omar</span><span class="ptag" style="--pc:var(--maya-on)">Maya Whitfield</span><span class="strip"><i class="sq v-yes" title="Select a business on the map"></i><i class="sq v-partial" title="Tap More to open details"></i><i class="sq v-partial" title="Find the predicted busyness graph"></i><i class="sq v-no" title="Read the prediction for a later time"></i></span></a>
+<a class="tindex-row" href="#wt-task-4" data-jump="wt-task-4"><span class="tnum">T4</span><span class="tname">Leave a Business Review</span><span class="tmeta">Written by Nolan &middot; walked by Omar</span><span class="ptag" style="--pc:var(--maya-on)">Maya Whitfield</span><span class="strip"><i class="sq v-yes" title="Select a business on the map"></i><i class="sq v-partial" title="Tap More to open details"></i><i class="sq v-partial" title="Tap Leave a Review"></i><i class="sq v-yes" title="Select a star rating"></i><i class="sq v-yes" title="Enter a comment"></i><i class="sq v-no" title="Tap Submit"></i></span></a>
+<a class="tindex-row" href="#wt-task-5" data-jump="wt-task-5"><span class="tnum">T5</span><span class="tname">View a Favorited Business on the Map</span><span class="tmeta">Written by Nolan &middot; walked by Evan</span><span class="ptag" style="--pc:var(--sam-on)">Sam Okafor</span><span class="strip"><i class="sq v-yes" title="Open Favorites"></i><i class="sq v-partial" title="Select a saved business"></i><i class="sq v-yes" title="Tap the Map button"></i><i class="sq v-yes" title="View business location on map"></i></span></a>
+<a class="tindex-row" href="#wt-task-6" data-jump="wt-task-6"><span class="tnum">T6</span><span class="tname">Check and Report a User&#x27;s Trust Score</span><span class="tmeta">Written by Omar &middot; walked by Evan</span><span class="ptag" style="--pc:var(--sam-on)">Sam Okafor</span><span class="strip"><i class="sq v-partial" title="Open a business&#x27;s reviews"></i><i class="sq v-yes" title="Select a user&#x27;s profile picture"></i><i class="sq v-no" title="View their trust score"></i><i class="sq v-partial" title="Submit a report"></i></span></a>
+            </div>
+          </div>
+        </div>
+
+
+        <article class="wt-card" id="wt-task-1" style="--pc:var(--jordan);--pc-on:var(--jordan-on)">
+          <header class="wt-head">
+            <span class="tnum big">T1</span>
+            <div>
+              <h3>Report a Business&#x27;s Busyness</h3>
+              <div class="wt-sub">Atomic actions written by Omar &middot; walked through by Nolan Jarvinen as <b>Jordan Ellis</b></div>
+            </div>
+          </header>
+          <p class="wt-scn">Jordan makes plans on the spot, so submitting a report should be quick and easy.</p>
+          <ol class="pathline"><li>Select a business on the map</li><li>Select the Report button on the business pop-up</li><li>Move the busyness slider</li><li>Choose an estimated wait time</li><li>Submit report</li></ol>
+          <div class="wt-tablewrap">
+            <table class="wt-table">
+              <thead><tr><th scope="col">Atomic action</th><th scope="col">Intent</th><th scope="col">Visibility</th><th scope="col">Association</th><th scope="col">Feedback</th><th scope="col">Proposed fix</th></tr></thead>
+              <tbody><tr><th scope="row">Select a business on the map</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The business popup opens.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv"><span class="nofix">None needed</span></div></td></tr><tr><th scope="row">Select the Report button on the business popup</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The reporting popup opens.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv"><span class="nofix">None needed</span></div></td></tr><tr><th scope="row">Move the busyness slider</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">The slider has no clear scale.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">It moves.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Show Quiet, Moderate, or Busy as the slider moves.</div></td></tr><tr><th scope="row">Choose an estimated wait time</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">There is a dial in the bottom left.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">The selected time stays in place on the dial.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Highlight the selection.</div></td></tr><tr><th scope="row">Tap Submit</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-no">No</span><span class="vtext">There is no confirmation in the sketch.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Show a short Report submitted message.</div></td></tr></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="wt-card" id="wt-task-2" style="--pc:var(--jordan);--pc-on:var(--jordan-on)">
+          <header class="wt-head">
+            <span class="tnum big">T2</span>
+            <div>
+              <h3>Add a Business to Favorites</h3>
+              <div class="wt-sub">Atomic actions written by Evan &middot; walked through by Nolan Jarvinen as <b>Jordan Ellis</b></div>
+            </div>
+          </header>
+          <p class="wt-scn">Jordan may want to save places while making plans with friends, so the heart button should be easy to find.</p>
+          <ol class="pathline"><li>Select a business on the map</li><li>Tap the Favorite button</li><li>Open Favorites to check the saved place</li></ol>
+          <div class="wt-tablewrap">
+            <table class="wt-table">
+              <thead><tr><th scope="col">Atomic action</th><th scope="col">Intent</th><th scope="col">Visibility</th><th scope="col">Association</th><th scope="col">Feedback</th><th scope="col">Proposed fix</th></tr></thead>
+              <tbody><tr><th scope="row">Select a business on the map</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The business popup opens.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv"><span class="nofix">None needed</span></div></td></tr><tr><th scope="row">Tap the heart on the business popup to save the business</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">A heart usually means favorite.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The heart changes to a filled-in heart.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv"><span class="nofix">None needed</span></div></td></tr><tr><th scope="row">Open Favorites to check the saved place</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">The Favorites section itself is easy to find, but there is no way to search for the one I just favorited. Instead, I have to scroll through all my favorites to find it.</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">The Favorites list opens, but finding a recently saved business can be difficult when there are a lot of favorites.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Make favorited businesses searchable and filterable.</div></td></tr></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="wt-card" id="wt-task-3" style="--pc:var(--maya);--pc-on:var(--maya-on)">
+          <header class="wt-head">
+            <span class="tnum big">T3</span>
+            <div>
+              <h3>Check Predicted Busyness</h3>
+              <div class="wt-sub">Atomic actions written by Evan &middot; walked through by Omar Naguib as <b>Maya Whitfield</b></div>
+            </div>
+          </header>
+          <p class="wt-scn">Maya plans ahead and wants to know which day and time the forecast is showing.</p>
+          <ol class="pathline"><li>Select business on map</li><li>Tap More to open details</li><li>View predicted busyness graph</li><li>Read predicted busyness graph</li></ol>
+          <div class="wt-tablewrap">
+            <table class="wt-table">
+              <thead><tr><th scope="col">Atomic action</th><th scope="col">Intent</th><th scope="col">Visibility</th><th scope="col">Association</th><th scope="col">Feedback</th><th scope="col">Proposed fix</th></tr></thead>
+              <tbody><tr><th scope="row">Select a business on the map</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The business popup opens.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv"><span class="nofix">None needed</span></div></td></tr><tr><th scope="row">Tap More to open details</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">More does not mention the forecast, so I wouldn&#x27;t know it&#x27;s in there.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The details screen opens.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Change More to Details, or something that hints me in the right direction.</div></td></tr><tr><th scope="row">Find the predicted busyness graph</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">It is below the reviews.</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The section is labeled projected busyness.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The graph appears.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Put the graph above the reviews.</div></td></tr><tr><th scope="row">Read the prediction for a later time</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">The time labels are hard to understand.</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-no">No</span><span class="vtext">The numbers 1 to 11 do not say what hours or day they mean.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">She can see bars but cannot plan around them confidently.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Label times clearly, include the day, and briefly explain the prediction.</div></td></tr></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="wt-card" id="wt-task-4" style="--pc:var(--maya);--pc-on:var(--maya-on)">
+          <header class="wt-head">
+            <span class="tnum big">T4</span>
+            <div>
+              <h3>Leave a Business Review</h3>
+              <div class="wt-sub">Atomic actions written by Nolan &middot; walked through by Omar Naguib as <b>Maya Whitfield</b></div>
+            </div>
+          </header>
+          <p class="wt-scn">Maya pays attention to wait times and needs a clear way to tell a review apart from a busyness report.</p>
+          <ol class="pathline"><li>Select business</li><li>Open business details with More button</li><li>Select Leave a Review</li><li>Enter rating</li><li>Enter comment</li><li>Submit review</li></ol>
+          <div class="wt-tablewrap">
+            <table class="wt-table">
+              <thead><tr><th scope="col">Atomic action</th><th scope="col">Intent</th><th scope="col">Visibility</th><th scope="col">Association</th><th scope="col">Feedback</th><th scope="col">Proposed fix</th></tr></thead>
+              <tbody><tr><th scope="row">Select a business on the map</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The business popup opens.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv"><span class="nofix">None needed</span></div></td></tr><tr><th scope="row">Tap More to open details</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">More does not make the review option obvious.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The details screen opens.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Add a Review option to the business popup, or hint at it with the More button.</div></td></tr><tr><th scope="row">Tap Leave a Review</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">The link is down the page.</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The review popup opens.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Make Leave a Review easier to see.</div></td></tr><tr><th scope="row">Select a star rating</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">You can see all of the stars to click.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv"><span class="nofix">None needed</span></div></td></tr><tr><th scope="row">Enter a comment</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The comment can be seen in the field.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv"><span class="nofix">None needed</span></div></td></tr><tr><th scope="row">Tap Submit</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-no">No</span><span class="vtext">There is no posting confirmation.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Show a posted confirmation and display the new review.</div></td></tr></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="wt-card" id="wt-task-5" style="--pc:var(--sam);--pc-on:var(--sam-on)">
+          <header class="wt-head">
+            <span class="tnum big">T5</span>
+            <div>
+              <h3>View a Favorited Business on the Map</h3>
+              <div class="wt-sub">Atomic actions written by Nolan &middot; walked through by Evan Wilkin as <b>Sam Okafor</b></div>
+            </div>
+          </header>
+          <p class="wt-scn">Sam likes to plan ahead and avoid crowded places, so being able to quickly check his saved businesses is important to him.</p>
+          <ol class="pathline"><li>Open Favorites</li><li>Select a saved business</li><li>Tap Map button</li><li>View business location on map</li></ol>
+          <div class="wt-tablewrap">
+            <table class="wt-table">
+              <thead><tr><th scope="col">Atomic action</th><th scope="col">Intent</th><th scope="col">Visibility</th><th scope="col">Association</th><th scope="col">Feedback</th><th scope="col">Proposed fix</th></tr></thead>
+              <tbody><tr><th scope="row">Open Favorites</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The bottom navigation makes Favorites easy to find.</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">Sam expects to see his saved businesses.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">His favorites list appears.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv"><span class="nofix">None needed</span></div></td></tr><tr><th scope="row">Select a saved business</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The saved businesses are listed clearly.</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">Sam sees the listed businesses and understands they are his favorited businesses.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">Businesses are shown, but it&#x27;s hard to find what Sam is looking for.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Make Favorites searchable so Sam wouldn&#x27;t have to scroll to find the business he&#x27;s looking for.</div></td></tr><tr><th scope="row">Tap the Map button</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The Map button is under the business name.</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The Map button brings you to the live map.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The map opens.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Let users open the map by tapping the saved business directly.</div></td></tr><tr><th scope="row">View business location on map</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The location and business information are visible.</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">Sam can check the location and busyness.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The business popup shows, and the map is centered on the location.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Keep the More option available in the map popup.</div></td></tr></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="wt-card" id="wt-task-6" style="--pc:var(--sam);--pc-on:var(--sam-on)">
+          <header class="wt-head">
+            <span class="tnum big">T6</span>
+            <div>
+              <h3>Check and Report a User&#x27;s Trust Score</h3>
+              <div class="wt-sub">Atomic actions written by Omar &middot; walked through by Evan Wilkin as <b>Sam Okafor</b></div>
+            </div>
+          </header>
+          <p class="wt-scn">Sam generally trusts information shared by other users. If he reported someone, he would want to know the report was received and whether anything was done about it.</p>
+          <ol class="pathline"><li>Open a business&#x27;s reviews</li><li>Select a user&#x27;s profile picture</li><li>View their trust score</li><li>Submit a report</li></ol>
+          <div class="wt-tablewrap">
+            <table class="wt-table">
+              <thead><tr><th scope="col">Atomic action</th><th scope="col">Intent</th><th scope="col">Visibility</th><th scope="col">Association</th><th scope="col">Feedback</th><th scope="col">Proposed fix</th></tr></thead>
+              <tbody><tr><th scope="row">Open a business&#x27;s reviews</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">Sam wants to check reviews and recent wait reports.</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">Reviews are under More instead of having their own section.</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">Reviews lead to user feedback and predicted busyness information.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">Reviews appear.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Make reviews easier to reach from the business popup.</div></td></tr><tr><th scope="row">Select a user&#x27;s profile picture</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">Sam wants to see who posted the information.</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The profile picture is easy to select.</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">Selecting the picture opens that user&#x27;s profile.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The profile opens.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv"><span class="nofix">None needed</span></div></td></tr><tr><th scope="row">View their trust score</th><td data-label="Intent"><div class="cv"><span class="vchip v-no">No</span><span class="vtext">Sam generally assumes people are being honest about busyness, so he may not think to check a trust score.</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The trust score is easy to see on the profile.</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">The score is clearly connected to the user.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">Sam can see the trust score.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Briefly explain what the trust score means and how it is calculated.</div></td></tr><tr><th scope="row">Submit a report</th><td data-label="Intent"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">If Sam received bad information, he would want to warn others.</span></div></td><td data-label="Visibility"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">Report is next to the trust score.</span></div></td><td data-label="Association"><div class="cv"><span class="vchip v-yes">Yes</span><span class="vtext">Report lets Sam rate the user&#x27;s trustworthiness and explain why.</span></div></td><td data-label="Feedback"><div class="cv"><span class="vchip v-partial">Partial</span><span class="vtext">Sam doesn&#x27;t know if it went through or what happens after reporting.</span></div></td><td data-label="Proposed fix" class="fixcell"><div class="cv">Show a report confirmation and explain why the user&#x27;s report matters.</div></td></tr></tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+
+      <!-- FINDINGS -->
+      <div class="subpanel" data-panel="p3-findings">
+        <h2>What the walkthrough found</h2>
+        <p>Intent was almost never the problem: it failed on only one of 26 actions. The prototype broke down on <b>feedback</b> and <b>labels</b>. Users could start an action but often could not tell whether it worked, or where a feature was hiding.</p>
+
+        <div class="theme-list">
+          <div class="theme-row sev-high">
+            <span class="tid">F1</span>
+            <div>
+              <h4>Submitting anything gives no confirmation</h4>
+              <p>Tasks T1, T4, T6 &middot; Feedback</p>
+              <p class="impl"><b>Fix:</b> Show a short confirmation after every submit (report, review, user report), and display the result: the updated busyness, or the new review in the list. This also answers Phase 2 theme T8, where participants asked what they get out of reporting.</p>
+            </div>
+          </div>
+          <div class="theme-row sev-high">
+            <span class="tid">F2</span>
+            <div>
+              <h4>&ldquo;More&rdquo; hides the forecast, reviews and the review button</h4>
+              <p>Tasks T3, T4, T6 &middot; Association, visibility</p>
+              <p class="impl"><b>Fix:</b> Rename More to <b>Details</b>, add a Review option directly on the info pop-up, and make Leave a Review easier to see on the details screen.</p>
+            </div>
+          </div>
+          <div class="theme-row sev-high">
+            <span class="tid">F3</span>
+            <div>
+              <h4>The predicted busyness chart can't be read</h4>
+              <p>Task T3 &middot; Visibility, association, feedback</p>
+              <p class="impl"><b>Fix:</b> Label the hours and the day, move the chart above the reviews, and add a one-line explanation of how the prediction is made.</p>
+            </div>
+          </div>
+          <div class="theme-row">
+            <span class="tid">F4</span>
+            <div>
+              <h4>The report controls have no scale</h4>
+              <p>Task T1 &middot; Association, feedback</p>
+              <p class="impl"><b>Fix:</b> Show Quiet, Moderate or Busy as the slider moves, and highlight the selected wait time on the dial.</p>
+            </div>
+          </div>
+          <div class="theme-row">
+            <span class="tid">F5</span>
+            <div>
+              <h4>Favorites can't be searched</h4>
+              <p>Tasks T2, T5 &middot; Visibility, feedback</p>
+              <p class="impl"><b>Fix:</b> Add search and filter to Favorites, and let users open a saved business on the map by tapping its row.</p>
+            </div>
+          </div>
+          <div class="theme-row">
+            <span class="tid">F6</span>
+            <div>
+              <h4>The trust score isn't explained</h4>
+              <p>Task T6 &middot; Intent</p>
+              <p class="impl"><b>Fix:</b> Briefly explain what the trust score means and how it is calculated. Phase 2 theme T9 found trust signals are features, not polish.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>What held up</h2>
+        <div class="grid-2">
+          <div class="card"><h3>Map to info pop-up</h3><p>Every task that started on the map passed all four questions at that step. Tapping a business to see its pop-up matched everyone's expectations.</p></div>
+          <div class="card"><h3>Familiar icons</h3><p>The heart for favorites, the profile picture for a user's profile and the bottom navigation bar were all recognized without help.</p></div>
+        </div>
+
+        <h2>Carried into the high-fidelity prototype</h2>
+        <ul class="checklist">
+          <li>Confirmation state after every submit, with the updated result visible</li>
+          <li>&ldquo;More&rdquo; renamed to &ldquo;Details&rdquo;; Review button added to the info pop-up</li>
+          <li>Forecast chart with labeled hours and day, moved above reviews</li>
+          <li>Quiet / Moderate / Busy labels on the report slider; highlighted wait time</li>
+          <li>Search and filter in Favorites; tap a row to open it on the map</li>
+          <li>Short explainer for the trust score</li>
+        </ul>
+      </div>
+
+      <!-- DOCUMENTS -->
+      <div class="subpanel" data-panel="p3-docs">
+        <p>The full written deliverable for this phase.</p>
+        <div class="doclist">
+          <a href="docs/BusyBee_Phase3_LowFi_Cognitive_Walkthrough.pdf" target="_blank" rel="noopener">
+            <span class="kind">PDF</span>Phase 3: Low-Fi Prototyping &amp; Cognitive Walkthrough, with all sketches, the flow map, paper prototype and six walkthrough reports
+            <span class="note">12 pages</span>
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- PHASE 4 -->
     <section id="phase-4" class="phase-section">
       <div class="eyebrow">Phase 4</div>
-      <h1>Low-Fidelity Prototype</h1>
+      <h1>High-Fidelity Prototype</h1>
       <div class="status-pill"><span class="status-dot pending"></span>Not started</div>
-      <p>Early sketches and a low-fidelity prototype, plus a task-centered walkthrough and initial informal feedback.</p>
+      <p>A refined, high-fidelity prototype built from what the Phase 3 walkthrough found in the paper version.</p>
       <div class="placeholder">Coming soon.</div>
     </section>
 
     <!-- PHASE 5 -->
     <section id="phase-5" class="phase-section">
       <div class="eyebrow">Phase 5</div>
-      <h1>High-Fidelity Prototype</h1>
-      <div class="status-pill"><span class="status-dot pending"></span>Not started</div>
-      <p>A refined, high-fidelity prototype built from what we learned testing the low-fidelity version.</p>
-      <div class="placeholder">Coming soon.</div>
-    </section>
-
-    <!-- PHASE 6 -->
-    <section id="phase-6" class="phase-section">
-      <div class="eyebrow">Phase 6</div>
       <h1>Usability Evaluation</h1>
       <div class="status-pill"><span class="status-dot pending"></span>Not started</div>
       <p>Structured usability testing on the high-fidelity prototype, with findings and any resulting design changes.</p>
       <div class="placeholder">Coming soon.</div>
     </section>
 
-    <!-- PHASE 7 -->
-    <section id="phase-7" class="phase-section">
-      <div class="eyebrow">Phase 7</div>
+    <!-- PHASE 6 -->
+    <section id="phase-6" class="phase-section">
+      <div class="eyebrow">Phase 6</div>
       <h1>Final Reflection</h1>
       <div class="status-pill"><span class="status-dot pending"></span>Not started</div>
       <p>What we'd do differently, what we learned about the design process, and where Busy Bee could go from here.</p>
@@ -793,6 +1263,12 @@
     </section>
 
   </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lb-close" type="button" aria-label="Close">&times;</button>
+    <img alt="">
+    <div class="lb-cap"></div>
+  </div>
 
   <footer class="site-footer">
     <div class="inner">
@@ -842,7 +1318,7 @@
   });
 
   const initial = window.location.hash.replace('#','');
-  if (initial && document.getElementById(initial)) {
+  if (initial && document.getElementById(initial) && document.getElementById(initial).classList.contains('phase-section')) {
     showTarget(initial);
   }
 
@@ -856,6 +1332,28 @@
       panels.forEach(pn => pn.classList.toggle('active', pn.dataset.panel === tab.dataset.panel));
     }));
   });
+
+  // Phase 3: task index jumps to the walkthrough card without changing the hash
+  document.querySelectorAll('[data-jump]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    const el = document.getElementById(a.dataset.jump);
+    if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  }));
+
+  // Lightbox for sketches and prototype photos
+  const lb = document.getElementById('lightbox');
+  const lbImg = lb.querySelector('img');
+  const lbCap = lb.querySelector('.lb-cap');
+  function closeLb(){ lb.classList.remove('open'); lbImg.removeAttribute('src'); }
+  document.querySelectorAll('img.zoomable').forEach(img => img.addEventListener('click', () => {
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt;
+    const cap = img.closest('figure') && img.closest('figure').querySelector('figcaption');
+    lbCap.textContent = cap ? cap.textContent : img.alt;
+    lb.classList.add('open');
+  }));
+  lb.addEventListener('click', closeLb);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 
   document.getElementById('update-date').textContent = new Date().toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
 </script>
