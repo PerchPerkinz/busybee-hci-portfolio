@@ -537,6 +537,60 @@
   @media(max-width:1080px){ .scr-grid.four{grid-template-columns:repeat(2,minmax(0,1fr));} }
   @media(max-width:820px){ .scr-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;} .protoframe iframe{height:78vh;} .latest{grid-template-columns:1fr;gap:18px;} .latest-thumbs img{width:calc((100% - 20px)/3);} }
 
+
+  /* ---------- Phase 5 ---------- */
+  .find-card{--sv:var(--v-partial);background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--sv);border-radius:10px;padding:20px 24px;margin-bottom:20px;}
+  .find-card.sev-low{--sv:var(--teal);}
+  .find-card.sev-med{--sv:var(--v-partial);}
+  .find-card.sev-high{--sv:var(--v-no);}
+  .find-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:4px;}
+  .find-head h3{margin:0;flex:1 1 320px;}
+  .fnum{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.8rem;color:var(--sv);background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:3px 0;text-align:center;width:34px;flex-shrink:0;}
+  .sev-chip{font-size:.74rem;font-weight:600;letter-spacing:.04em;color:var(--sv);border:1px solid currentColor;border-radius:999px;padding:2px 10px;white-space:nowrap;}
+  .find-meta{font-size:.88rem;color:var(--text-faint);margin:0 0 16px;}
+  .find-meta b{color:var(--text-muted);font-weight:600;}
+  .find-body{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;align-items:start;}
+  .find-fig{margin:0;}
+  .find-fig img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--border);background:#141414;cursor:zoom-in;transition:border-color .15s ease;}
+  .find-fig img:hover{border-color:var(--gold-dim);}
+  .find-fig figcaption{font-size:.8rem;color:var(--text-faint);margin-top:7px;}
+  .find-fig.seq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+  .find-fig.seq figcaption{grid-column:1/-1;margin-top:1px;}
+  .find-detail{margin:0;display:flex;flex-direction:column;gap:11px;}
+  .find-detail > div{display:grid;grid-template-columns:132px minmax(0,1fr);gap:16px;}
+  .find-detail dt{font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);padding-top:3px;}
+  .find-detail dd{margin:0;font-size:1rem;line-height:1.6;color:var(--text-muted);}
+
+  .sus-hero{display:grid;grid-template-columns:auto minmax(0,1fr);gap:30px;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:24px 26px;margin-bottom:22px;}
+  .sus-score{font-family:'Space Grotesk',sans-serif;font-size:3.6rem;font-weight:600;line-height:1;color:var(--text);font-variant-numeric:tabular-nums;}
+  .sus-score span{display:block;font-size:.76rem;font-weight:400;letter-spacing:.09em;text-transform:uppercase;color:var(--text-faint);margin-top:9px;}
+  .sus-scale{position:relative;padding-bottom:26px;}
+  .sus-track{position:relative;height:10px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);}
+  .sus-fill{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--gold);}
+  .sus-mark{position:absolute;top:-7px;width:2px;height:24px;background:var(--text-faint);}
+  .sus-mark b{position:absolute;top:25px;left:50%;transform:translateX(-50%);font-size:.76rem;font-weight:400;color:var(--text-faint);white-space:nowrap;}
+  .sus-ends{display:flex;justify-content:space-between;font-size:.76rem;color:var(--text-faint);margin-top:8px;}
+
+  .sus-bars{display:flex;flex-direction:column;gap:10px;margin:0;}
+  .sus-row{display:grid;grid-template-columns:160px minmax(0,1fr) 42px;gap:14px;align-items:center;}
+  .sus-row .who{font-size:.92rem;color:var(--text-muted);}
+  .sus-row .who i{font-style:normal;color:var(--text-faint);}
+  .sus-track-s{background:var(--surface-2);border-radius:4px;}
+  .sus-bar{height:14px;border-radius:0 4px 4px 0;background:var(--gold);}
+  .sus-row .val{font-family:'Space Grotesk',sans-serif;font-size:.98rem;color:var(--text);text-align:right;font-variant-numeric:tabular-nums;}
+  .sus-axis{display:grid;grid-template-columns:160px minmax(0,1fr) 42px;gap:14px;margin-top:5px;}
+  .sus-axis span{grid-column:2;display:flex;justify-content:space-between;font-size:.76rem;color:var(--text-faint);border-top:1px solid var(--border);padding-top:5px;}
+
+  @media(max-width:900px){
+    .find-body{grid-template-columns:1fr;gap:16px;}
+    .find-fig{max-width:250px;}
+    .find-fig.seq{max-width:none;}
+    .find-detail > div{grid-template-columns:1fr;gap:2px;}
+    .sus-hero{grid-template-columns:1fr;gap:20px;}
+    .sus-row,.sus-axis{grid-template-columns:104px minmax(0,1fr) 38px;gap:10px;}
+    .sus-row .who{font-size:.84rem;}
+  }
+
   /* ---------- Narrow screens ---------- */
   @media(max-width:1080px){
     .topbar-inner{padding:12px 24px 0;}
@@ -594,7 +648,7 @@
         <button class="nav-item" data-target="phase-2">2 &middot; Research<span class="status-dot complete"></span></button>
         <button class="nav-item" data-target="phase-3">3 &middot; Low-Fi<span class="status-dot complete"></span></button>
         <button class="nav-item" data-target="phase-4">4 &middot; High-Fi<span class="status-dot complete"></span></button>
-        <button class="nav-item" data-target="phase-5">5 &middot; Evaluation<span class="status-dot pending"></span></button>
+        <button class="nav-item" data-target="phase-5">5 &middot; Evaluation<span class="status-dot complete"></span></button>
         <button class="nav-item" data-target="phase-6">6 &middot; Reflection<span class="status-dot pending"></span></button>
         <button class="nav-item" data-target="team">Team</button>
       </nav>
@@ -725,7 +779,7 @@
           </div>
           <div class="step">
             <span class="num">4</span>
-            <div><h4>Evaluation <span class="ph">Phase 5</span></h4><p>Usability testing against the tasks identified in Phase 3, with findings fed back into the design.</p></div>
+            <div><h4>Evaluation <span class="ph">Phase 5</span></h4><p>Usability sessions with six participants on the high-fidelity prototype, with the findings fed back into the design.</p></div>
           </div>
           <div class="step">
             <span class="num">5</span>
@@ -1430,9 +1484,232 @@
     <section id="phase-5" class="phase-section">
       <div class="eyebrow">Phase 5</div>
       <h1>Usability Evaluation</h1>
-      <div class="status-pill"><span class="status-dot pending"></span>Not started</div>
-      <p>Structured usability testing on the high-fidelity prototype, with findings and any resulting design changes.</p>
-      <div class="placeholder">Coming soon.</div>
+      <div class="status-pill"><span class="status-dot complete"></span>Complete</div>
+      <p>We put the Phase 4 Figma prototype in front of six participants, two for each of us. We watched them work through three tasks, logged every hesitation and mistake, and ended each session with a System Usability Scale questionnaire. Seven issues came out of it, and four of them changed the prototype.</p>
+
+      <div class="statline">
+        <div><b>6</b><span>Participants</span></div>
+        <div><b>3</b><span>Tasks</span></div>
+        <div><b>7</b><span>Issues logged</span></div>
+        <div><b>84.7</b><span>Average SUS</span></div>
+        <div><b>4/7</b><span>Issues addressed</span></div>
+      </div>
+
+      <div class="subtabs" role="tablist">
+        <button class="subtab active" data-panel="p5-findings">Findings</button>
+        <button class="subtab" data-panel="p5-sus">SUS Scores</button>
+        <button class="subtab" data-panel="p5-changes">What Changed</button>
+        <button class="subtab" data-panel="p5-docs">Documents</button>
+      </div>
+
+      <!-- FINDINGS -->
+      <div class="subpanel active" data-panel="p5-findings">
+        <h2>What we asked people to do</h2>
+        <p>Three tasks, each one a thing the app exists for. Every issue below is tagged with the task it surfaced in.</p>
+        <div class="theme-list">
+          <div class="theme-row"><span class="tid">T1</span><div><h4>Report how busy a business is</h4><p>Find a place on the map, open it, and submit a busyness level and wait time.</p></div></div>
+          <div class="theme-row"><span class="tid">T2</span><div><h4>Check the community reports behind a busyness level</h4><p>Get from the map to the reports other people have filed, then open the profile of the person who filed one.</p></div></div>
+          <div class="theme-row"><span class="tid">T3</span><div><h4>Save a business and take it back off Favorites</h4><p>Favorite a place, then remove it again from the Favorites tab.</p></div></div>
+        </div>
+
+        <h2>The seven issues</h2>
+        <p>Click any screenshot to see it full size. The red marks are ours, added to show where the problem was.</p>
+
+        <article class="find-card sev-low">
+          <div class="find-head"><span class="fnum">01</span><h3>Only the profile icon opened a reporter's profile</h3><span class="sev-chip">Low</span></div>
+          <p class="find-meta"><b>Task 2</b> &middot; View Reports screen &middot; found by Evan</p>
+          <div class="find-body">
+            <figure class="find-fig">
+              <img class="zoomable" src="phase5/img/01-view-reports-card.png" alt="View Reports screen with one community report card outlined in blue" loading="lazy">
+              <figcaption>Picture 1</figcaption>
+            </figure>
+            <dl class="find-detail">
+              <div><dt>What happened</dt><dd>The participant kept clicking the body of the report to get to the person who filed it. It took a few tries before he worked out that the profile picture was the only part that opened their profile.</dd></div>
+              <div><dt>Why</dt><dd>He read the whole card as the link, the way a post works elsewhere. The hit area was just the small icon.</dd></div>
+              <div><dt>Scope</dt><dd>View Reports screen.</dd></div>
+              <div><dt>Severity</dt><dd>Low. Moving cleanly from one task to the next matters, but tapping a picture instead of a card is not a drastic failure.</dd></div>
+              <div><dt>What we did</dt><dd><span class="vchip v-yes">Changed</span>The entire report card is now clickable, since more than one participant struggled to hit the icon.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="find-card sev-low">
+          <div class="find-head"><span class="fnum">02</span><h3>&ldquo;Report&rdquo; did not say what was being reported</h3><span class="sev-chip">Low</span></div>
+          <p class="find-meta"><b>Task 1</b> &middot; Business pop-up &middot; found by Nolan</p>
+          <div class="find-body">
+            <figure class="find-fig">
+              <img class="zoomable" src="phase5/img/02-report-button.png" alt="Business pop-up for Texas Roadhouse with the Report button circled in red" loading="lazy">
+              <figcaption>Picture 2</figcaption>
+            </figure>
+            <dl class="find-detail">
+              <div><dt>What happened</dt><dd>Participants did not immediately understand that Report was how you submit a busyness level, though they used the surrounding context to work it out quickly.</dd></div>
+              <div><dt>Why</dt><dd>The label was just &ldquo;Report.&rdquo; One participant read it as reporting the business for doing something wrong.</dd></div>
+              <div><dt>Scope</dt><dd>Business information pop-up and the busyness reporting feature.</dd></div>
+              <div><dt>Severity</dt><dd>Low. Brief confusion, but every participant understood the feature in the end.</dd></div>
+              <div><dt>What we did</dt><dd><span class="vchip v-no">Not changed</span>We found no clearer alternative that works with the same formatting. A longer label such as &ldquo;Report Busyness&rdquo; would mean reformatting the whole button row, so we took the brief misread over that. The trade-off is that some people will keep reading it the wrong way until they tap it once.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="find-card sev-med">
+          <div class="find-head"><span class="fnum">03</span><h3>The pop-up looked like it should swipe up</h3><span class="sev-chip">Medium</span></div>
+          <p class="find-meta"><b>Task 2</b> &middot; Business pop-up &middot; found by Nolan and Omar</p>
+          <div class="find-body">
+            <figure class="find-fig">
+              <img class="zoomable" src="phase5/img/03-popup-drag-bar.png" alt="Business pop-up with the drag bar circled in red and an arrow pointing at the Details button" loading="lazy">
+              <figcaption>Picture 3</figcaption>
+            </figure>
+            <dl class="find-detail">
+              <div><dt>What happened</dt><dd>The participant swiped up on the pop-up expecting it to expand into the full business page. Nothing moved.</dd></div>
+              <div><dt>Why</dt><dd>The sheet covers part of the screen and carries a grabber bar at the top, which is exactly how expandable panels behave in other mobile apps. He applied that expectation here.</dd></div>
+              <div><dt>Scope</dt><dd>Business information pop-up and the route to the full business details.</dd></div>
+              <div><dt>Severity</dt><dd>Medium. A familiar gesture doing nothing makes the whole screen feel less responsive, even though Details was right there.</dd></div>
+              <div><dt>What we did</dt><dd><span class="vchip v-partial">Changed in part</span>Swiping up still does not reveal more business details; Details remains the way in. We widened the area around the drag bar instead, so people who reach for it can grab it and dismiss the sheet without fighting it. The trade-off is that the gesture the sheet invites still does not do what it looks like it should.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="find-card sev-med">
+          <div class="find-head"><span class="fnum">04</span><h3>Community reports sat several taps deep</h3><span class="sev-chip">Low / Medium</span></div>
+          <p class="find-meta"><b>Task 2</b> &middot; Map to View Reports &middot; found by Nolan</p>
+          <div class="find-body">
+            <figure class="find-fig seq">
+              <img class="zoomable" src="phase5/img/04a-home-map.png" alt="Home map with the Texas Roadhouse pin marked by a red arrow" loading="lazy">
+              <img class="zoomable" src="phase5/img/04b-business-popup.png" alt="Business pop-up with a red arrow pointing at the Details button" loading="lazy">
+              <img class="zoomable" src="phase5/img/04c-business-details.png" alt="Business details screen with a red arrow pointing at the View Reports button" loading="lazy">
+              <img class="zoomable" src="phase5/img/04d-view-reports.png" alt="View Reports screen listing community-submitted busyness and wait times" loading="lazy">
+              <figcaption>Picture 4: the full path, map pin to pop-up to Details to View Reports</figcaption>
+            </figure>
+            <dl class="find-detail">
+              <div><dt>What happened</dt><dd>The participant felt that getting to other people's busyness reports took too many clicks.</dd></div>
+              <div><dt>Why</dt><dd>From his point of view the reports were buried behind a chain of navigation steps rather than being reachable from the first business screen he saw.</dd></div>
+              <div><dt>Scope</dt><dd>Business Details screen, the View Reports feature, and navigation between the business screens.</dd></div>
+              <div><dt>Severity</dt><dd>Low to medium. He got there without help; the extra steps only cost him time.</dd></div>
+              <div><dt>What we did</dt><dd><span class="vchip v-no">Not changed</span>We counted the taps ourselves, settled on three as reasonable, and decided redesigning the navigation for this was unnecessary. The trade-off is that anyone who checks reports often pays those taps every time.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="find-card sev-high">
+          <div class="find-head"><span class="fnum">05</span><h3>The View Reports button did not stand out</h3><span class="sev-chip">Medium / High</span></div>
+          <p class="find-meta"><b>Task 2</b> &middot; Business Details screen &middot; found by Omar, Nolan and Evan</p>
+          <div class="find-body">
+            <figure class="find-fig">
+              <img class="zoomable" src="phase5/img/05-view-reports-button.png" alt="Little Caesars details screen with the View Reports button circled in red" loading="lazy">
+              <figcaption>Picture 5</figcaption>
+            </figure>
+            <dl class="find-detail">
+              <div><dt>What happened</dt><dd>The participant had real trouble finding View Reports on the details screen. He said the color did not stand out to him. He found it eventually and finished the task.</dd></div>
+              <div><dt>Why</dt><dd>The button sat inside the busyness panel in the same muted gray as the information around it, so it read as a label rather than something to press.</dd></div>
+              <div><dt>Scope</dt><dd>Business Details screen, specifically the View Reports feature.</dd></div>
+              <div><dt>Severity</dt><dd>Medium to high. All three of us saw it. If one person nearly missed the button, others would never learn the feature exists.</dd></div>
+              <div><dt>What we did</dt><dd><span class="vchip v-yes">Changed</span>The button is bigger, the text is bigger, and the color scheme changed so it separates from the panel behind it. This was the one finding all three of us agreed had to be fixed.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="find-card sev-low">
+          <div class="find-head"><span class="fnum">06</span><h3>The heart did not look like it could be undone</h3><span class="sev-chip">Low</span></div>
+          <p class="find-meta"><b>Task 3</b> &middot; Favorites and business screens &middot; found by Omar, Nolan and Evan</p>
+          <div class="find-body">
+            <figure class="find-fig">
+              <img class="zoomable" src="phase5/img/06-favorite-heart.png" alt="Business pop-up showing the revised favorite control as a solid red heart" loading="lazy">
+              <figcaption>Picture 6: the revised control</figcaption>
+            </figure>
+            <dl class="find-detail">
+              <div><dt>What happened</dt><dd>Asked to take a business off his Favorites, the participant opened Details looking for the option. It was not there, so he went back to Favorites and worked out that tapping the heart again removes it.</dd></div>
+              <div><dt>Why</dt><dd>He did not recognize that the same heart both adds and removes. An outlined heart gave him nothing to tell saved from not saved.</dd></div>
+              <div><dt>Scope</dt><dd>Favorites and business screens.</dd></div>
+              <div><dt>Severity</dt><dd>Low. Minor confusion, and he recovered on his own without help.</dd></div>
+              <div><dt>What we did</dt><dd><span class="vchip v-yes">Changed</span>The heart now fills solid red once a business is saved. Keeping our own version would have been swimming against the stream: a filled heart is what mobile users already expect, so we conformed to it.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="find-card sev-med">
+          <div class="find-head"><span class="fnum">07</span><h3>All three busyness levels could be selected at once</h3><span class="sev-chip">Medium / Low</span></div>
+          <p class="find-meta"><b>Task 1</b> &middot; Report busyness &middot; found by Evan</p>
+          <div class="find-body">
+            <figure class="find-fig">
+              <img class="zoomable" src="phase5/img/07-busyness-buttons.png" alt="Report busyness controls showing the Quiet, Moderate and Busy buttons" loading="lazy">
+              <figcaption>Picture 7</figcaption>
+            </figure>
+            <dl class="find-detail">
+              <div><dt>What happened</dt><dd>The participant could press Quiet, Moderate and Busy, in any combination, all at the same time.</dd></div>
+              <div><dt>Why</dt><dd>The three buttons behave independently. People expect a set like this to be one choice, where picking one clears the others.</dd></div>
+              <div><dt>Scope</dt><dd>Reporting busyness.</dd></div>
+              <div><dt>Severity</dt><dd>Medium to low. Confusing on its own, and if submitting were live it would let contradictory reports through.</dd></div>
+              <div><dt>What we did</dt><dd><span class="vchip v-no">Not changed</span>We could not find a way to make the three buttons act as one choice in Figma. The trade-off is real: the prototype still accepts a contradictory selection, and this one is a prototyping limit rather than a design decision. In a built app it is a radio group and the problem disappears.</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+
+      <!-- SUS -->
+      <div class="subpanel" data-panel="p5-sus">
+        <h2>System Usability Scale</h2>
+        <p>Every participant filled out the ten-question SUS survey at the end of their session. Scores run from 0 to 100, and 68 is the published average that a product is measured against.</p>
+
+        <div class="sus-hero">
+          <div class="sus-score">84.7<span>Average SUS</span></div>
+          <div class="sus-scale">
+            <div class="sus-track">
+              <div class="sus-fill" style="width:84.7%"></div>
+              <div class="sus-mark" style="left:68%"><b>68 industry average</b></div>
+            </div>
+            <div class="sus-ends"><span>0</span><span>100</span></div>
+          </div>
+        </div>
+
+        <p>That is 16.7 points above the benchmark, and high enough to sit in the band usually described as excellent. No single session came in under 77, so the result is not one enthusiastic participant carrying the rest.</p>
+
+        <h3 class="mini-h">Every score</h3>
+        <div class="sus-bars">
+          <div class="sus-row"><span class="who">Evan <i>&middot; User 1</i></span><div class="sus-track-s"><div class="sus-bar" style="width:77%"></div></div><span class="val">77</span></div>
+          <div class="sus-row"><span class="who">Evan <i>&middot; User 2</i></span><div class="sus-track-s"><div class="sus-bar" style="width:90%"></div></div><span class="val">90</span></div>
+          <div class="sus-row"><span class="who">Nolan <i>&middot; User 1</i></span><div class="sus-track-s"><div class="sus-bar" style="width:85%"></div></div><span class="val">85</span></div>
+          <div class="sus-row"><span class="who">Nolan <i>&middot; User 2</i></span><div class="sus-track-s"><div class="sus-bar" style="width:92%"></div></div><span class="val">92</span></div>
+          <div class="sus-row"><span class="who">Omar <i>&middot; User 1</i></span><div class="sus-track-s"><div class="sus-bar" style="width:82%"></div></div><span class="val">82</span></div>
+          <div class="sus-row"><span class="who">Omar <i>&middot; User 2</i></span><div class="sus-track-s"><div class="sus-bar" style="width:82%"></div></div><span class="val">82</span></div>
+        </div>
+        <div class="sus-axis"><span><span>0</span><span>100</span></span></div>
+
+        <div class="card" style="margin-top:26px">
+          <h3>Reading it honestly</h3>
+          <p>A score this high is encouraging, but six people is a small sample and the spread is narrow, so we are not treating 84.7 as proof the design is finished. What it does tell us is that nothing we found in these sessions was a blocker: participants finished the tasks, several of them after a detour, and the seven issues are friction rather than failure. The one issue all three of us logged independently, the View Reports button, is also the one we rated highest and fixed first.</p>
+        </div>
+      </div>
+
+      <!-- WHAT CHANGED -->
+      <div class="subpanel" data-panel="p5-changes">
+        <h2>What changed in the prototype</h2>
+        <p>Four of the seven issues led to a change. The other three we left alone on purpose, and the reason is written out in each case rather than hidden.</p>
+        <div class="theme-list">
+          <div class="theme-row"><span class="tid">01</span><div><h4>The whole report card is clickable</h4><p>Opening a reporter's profile no longer depends on hitting a small icon. The full card is the target.</p><p class="impl"><span class="vchip v-yes">Changed</span>Trade-off: with the whole card as one target, anything else the card might need to link to later has to go somewhere else.</p></div></div>
+          <div class="theme-row"><span class="tid">02</span><div><h4>The Report label stayed as it is</h4><p>We found no clearer alternative that fits the pop-up without reformatting the button row.</p><p class="impl"><span class="vchip v-no">Not changed</span>Trade-off: some people will keep reading it as reporting the business itself until they tap it once.</p></div></div>
+          <div class="theme-row"><span class="tid">03</span><div><h4>A wider grab area on the drag bar</h4><p>Swiping up still does not expand the sheet, but the bar is much easier to catch, so dismissing the pop-up takes one deliberate drag instead of several attempts.</p><p class="impl"><span class="vchip v-partial">Changed in part</span>Trade-off: people who expect the swipe-to-expand gesture still do not get it, and Details remains the only way into the full page.</p></div></div>
+          <div class="theme-row"><span class="tid">04</span><div><h4>The route to community reports stayed as it is</h4><p>Three taps from the map was judged reasonable for something people will not open on every visit.</p><p class="impl"><span class="vchip v-no">Not changed</span>Trade-off: the people who do check reports often pay that cost every time.</p></div></div>
+          <div class="theme-row"><span class="tid">05</span><div><h4>View Reports is bigger and no longer gray</h4><p>Larger button, larger text, and a color that separates it from the busyness panel around it. The whole team agreed this one had to change.</p><p class="impl"><span class="vchip v-yes">Changed</span>Trade-off: a louder button on an already dense screen pulls attention away from Directions and Report Busyness.</p></div></div>
+          <div class="theme-row"><span class="tid">06</span><div><h4>The favorite heart fills solid red</h4><p>Saved and not saved are now obvious at a glance, and the same tap undoes it, which is the pattern people already know from other apps.</p><p class="impl"><span class="vchip v-yes">Changed</span>Trade-off: red is also our Busy color, so the heart borrows a hue that means something else elsewhere in the app.</p></div></div>
+          <div class="theme-row"><span class="tid">07</span><div><h4>The busyness buttons still allow multiple selections</h4><p>We could not get the three buttons to behave as a single choice in Figma.</p><p class="impl"><span class="vchip v-no">Not changed</span>Trade-off: the prototype accepts a selection a real user never should be able to make. This is a limit of the tool, not a decision about the design, and it becomes a radio group in a built app.</p></div></div>
+        </div>
+
+        <div class="card" style="margin-top:22px">
+          <h3>What this phase taught us</h3>
+          <p>The issues people hit were not the ones we expected. Phase 3 and Phase 4 went into confirmations, labels and explaining the trust score, and none of that came up. What tripped people instead was physical: hit areas too small, a button the same color as its background, a gesture the screen invited but did not support. Participants brought habits from the apps they already use, and the places where Busy Bee did not match those habits are exactly where they slowed down.</p>
+        </div>
+      </div>
+
+      <!-- DOCUMENTS -->
+      <div class="subpanel" data-panel="p5-docs">
+        <p>The full written deliverable for this phase.</p>
+        <div class="doclist">
+          <a href="docs/BusyBee_Phase5_Usability_Evaluation.pdf" target="_blank" rel="noopener">
+            <span class="kind">PDF</span>Phase 5: Usability Evaluation Report, with the full feedback analysis table, all referenced screens, the SUS scores and the summary of changes
+            <span class="note">8 pages</span>
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- PHASE 6 -->
